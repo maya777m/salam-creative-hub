@@ -32,7 +32,7 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="section-padding bg-white">
+    <section id="services" className="section-padding bg-gray-50">
       <div className="container">
         <h2 className="section-title">My Services</h2>
         <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">

@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="pt-28 pb-16 md:pt-32 md:pb-24 bg-gradient-to-b from-amber-50 to-white">
+    <section className="pt-28 pb-12 md:pt-32 md:pb-16 bg-gradient-to-b from-amber-50 to-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="md:w-1/2 mb-10 md:mb-0 animate-fade-in">
