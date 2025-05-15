@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Award, Briefcase, Star } from 'lucide-react';
 const AboutSnippet: React.FC = () => {
-  return <section className="py-16 md:py-24 bg-white">
+  return <section className="py-16 bg-white md:py-[2px]">
       <div className="container mx-auto px-4">
         <div className="flex flex-col-reverse md:flex-row md:items-center md:gap-12">
           {/* About Text Content */}
@@ -56,7 +56,7 @@ const AboutSnippet: React.FC = () => {
           <div className="md:w-1/2 animate-slide-up">
             <div className="relative">
               <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Md. Abdus Salam Working" className="rounded-lg shadow-xl w-medium h-mediumobject-cover object-scale-down" />
-              <div className="absolute -bottom-5 -left-5 bg-white p-4 rounded-lg shadow-lg">
+              <div className="absolute -bottom-5 -left-5 bg-white p-4 rounded-lg shadow-lg py-[69px] mx-[10px] my-[79px] px-[38px]">
                 <h3 className="text-amber-500 font-bold text-lg">Passionate</h3>
                 <p className="text-gray-700 text-sm">About Design & Marketing</p>
               </div>

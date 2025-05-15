@@ -175,10 +175,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-          <span className="text-sm text-gray-500 mb-1">Scroll Down</span>
-          <ChevronDown size={20} className="text-amber-500" />
-        </div>
+        
       </div>
     </section>;
 };
