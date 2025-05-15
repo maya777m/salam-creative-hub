@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Md. Abdus Salam - Digital Marketing & Graphic Design Expert</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
   <style>
     /* Base styles */
     * {
@@ -18,6 +20,7 @@
       font-family: 'Poppins', sans-serif;
       color: #333333;
       line-height: 1.6;
+      overflow-x: hidden;
     }
     
     .container {
@@ -41,6 +44,8 @@
     
     .btn-primary:hover {
       background-color: #ffb300;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
     }
     
     .btn-outline {
@@ -58,6 +63,8 @@
     .btn-outline:hover {
       background-color: #ffc107;
       color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
     }
     
     /* Navbar */
@@ -84,10 +91,17 @@
       font-size: 24px;
       text-decoration: none;
       color: #333333;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-logo:hover span {
+      transform: scale(1.1);
+      display: inline-block;
     }
     
     .navbar-logo span {
       color: #ffc107;
+      transition: all 0.3s ease;
     }
     
     .navbar-menu {
@@ -103,7 +117,27 @@
       font-weight: 500;
       text-decoration: none;
       color: #333333;
-      transition: color 0.3s ease;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .navbar-menu a:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #ffc107;
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.3s ease-out;
+    }
+    
+    .navbar-menu a:hover:after,
+    .navbar-menu a.active:after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
     }
     
     .navbar-menu a:hover, .navbar-menu a.active {
@@ -123,12 +157,16 @@
       padding-top: 120px;
       padding-bottom: 80px;
       background: linear-gradient(to bottom, #fff8e1, #ffffff);
+      overflow: hidden;
+      position: relative;
     }
     
     .hero-content {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: relative;
+      z-index: 5;
     }
     
     .hero-text {
@@ -145,6 +183,10 @@
       font-weight: 700;
       margin-bottom: 16px;
       line-height: 1.2;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
+      animation-delay: 0.2s;
     }
     
     .hero-subtitle {
@@ -152,12 +194,37 @@
       font-weight: 500;
       color: #666;
       margin-bottom: 24px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
+      animation-delay: 0.4s;
     }
     
     .hero-description {
       font-size: 18px;
       color: #666;
       margin-bottom: 32px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
+      animation-delay: 0.6s;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 400px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
+      animation-delay: 0.8s;
+    }
+
+    @media (min-width: 640px) {
+      .hero-buttons {
+        flex-direction: row;
+      }
     }
     
     .hero-image-container {
@@ -169,6 +236,10 @@
       border: 4px solid #fff;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       background-color: #ffc107;
+      opacity: 0;
+      transform: scale(0.9);
+      animation: fadeInScale 0.8s forwards;
+      animation-delay: 1s;
     }
     
     .hero-image-container img {
@@ -185,6 +256,9 @@
       padding: 16px;
       border-radius: 50%;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      opacity: 0;
+      animation: fadeIn 0.8s forwards;
+      animation-delay: 1.4s;
     }
     
     .hero-decoration-dot {
@@ -196,10 +270,21 @@
       margin: 0 4px;
     }
     
+    .hero-3d-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    
     /* About Section */
     .about {
       padding: 80px 0;
       background-color: #fff;
+      position: relative;
+      overflow: hidden;
     }
     
     .about-content {
@@ -222,6 +307,17 @@
       font-size: 36px;
       font-weight: 700;
       margin-bottom: 24px;
+      position: relative;
+    }
+    
+    .about-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 80px;
+      height: 3px;
+      background-color: #ffc107;
     }
     
     .about-description {
@@ -239,6 +335,11 @@
     .about-stat-item {
       display: flex;
       align-items: flex-start;
+      transition: all 0.3s ease;
+    }
+
+    .about-stat-item:hover {
+      transform: translateY(-5px);
     }
     
     .about-stat-icon {
@@ -247,6 +348,12 @@
       background-color: #fff8e1;
       border-radius: 8px;
       color: #ffc107;
+      transition: all 0.3s ease;
+    }
+    
+    .about-stat-item:hover .about-stat-icon {
+      background-color: #ffc107;
+      color: #fff;
     }
     
     .about-image-container img {
@@ -254,6 +361,11 @@
       height: auto;
       border-radius: 8px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.5s ease;
+    }
+    
+    .about-image-container:hover img {
+      transform: scale(1.03);
     }
     
     .about-badge {
@@ -264,6 +376,12 @@
       padding: 16px;
       border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .about-badge:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.15);
     }
     
     .about-badge-title {
@@ -281,6 +399,8 @@
     .services {
       padding: 80px 0;
       background-color: #f9f9f9;
+      position: relative;
+      overflow: hidden;
     }
     
     .section-title {
@@ -322,11 +442,12 @@
       padding: 24px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       transition: all 0.3s ease;
+      border-left: 0px solid #ffc107;
     }
     
     .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      transform: translateY(-10px);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.1);
       border-left: 4px solid #ffc107;
     }
     
@@ -334,6 +455,11 @@
       font-size: 40px;
       color: #ffc107;
       margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover .service-icon {
+      transform: scale(1.1);
     }
     
     .service-title {
@@ -363,6 +489,11 @@
       background-color: #ffc107;
       border-radius: 50%;
       margin-right: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover .service-list-bullet {
+      transform: scale(1.5);
     }
     
     .service-link {
@@ -371,10 +502,38 @@
       text-decoration: none;
       display: inline-flex;
       align-items: center;
+      transition: all 0.3s ease;
     }
     
     .service-link:hover {
-      text-decoration: underline;
+      color: #ffb300;
+      transform: translateX(5px);
+    }
+    
+    .shape {
+      position: absolute;
+      z-index: 0;
+      opacity: 0.05;
+    }
+    
+    .shape-1 {
+      top: 10%;
+      left: 5%;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: #ffc107;
+      animation: float 8s infinite alternate ease-in-out;
+    }
+    
+    .shape-2 {
+      top: 60%;
+      right: 5%;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background-color: #ffc107;
+      animation: float 10s infinite alternate-reverse ease-in-out;
     }
     
     /* Portfolio Section */
@@ -404,10 +563,12 @@
     .portfolio-filter-btn.active {
       background-color: #ffc107;
       color: #fff;
+      box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
     }
     
-    .portfolio-filter-btn:hover {
+    .portfolio-filter-btn:hover:not(.active) {
       background-color: #fff8e1;
+      transform: translateY(-2px);
     }
     
     .portfolio-grid {
@@ -421,6 +582,12 @@
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       background-color: #fff;
+      transition: all 0.3s ease;
+    }
+    
+    .portfolio-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.1);
     }
     
     .portfolio-image {
@@ -456,12 +623,20 @@
       color: #ffc107;
       border-radius: 100px;
       font-size: 14px;
+      transition: all 0.3s ease;
+    }
+    
+    .portfolio-item:hover .portfolio-category {
+      background-color: #ffc107;
+      color: #fff;
     }
     
     /* Testimonials Section */
     .testimonials {
       padding: 80px 0;
       background-color: #fff;
+      position: relative;
+      overflow: hidden;
     }
     
     .testimonials-grid {
@@ -478,11 +653,12 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       position: relative;
       transition: all 0.3s ease;
+      border-top: 0px solid #ffc107;
     }
     
     .testimonial-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      transform: translateY(-12px);
+      box-shadow: 0 20px 30px rgba(0,0,0,0.1);
       border-top: 4px solid #ffc107;
     }
     
@@ -504,6 +680,12 @@
       border-radius: 50%;
       overflow: hidden;
       margin-right: 16px;
+      border: 2px solid #ffc107;
+      transition: all 0.3s ease;
+    }
+    
+    .testimonial-card:hover .testimonial-avatar {
+      transform: scale(1.1);
     }
     
     .testimonial-avatar img {
@@ -537,6 +719,8 @@
       color: #666;
       font-style: italic;
       margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
     }
     
     .testimonial-decoration {
@@ -552,12 +736,189 @@
       justify-content: center;
       color: #fff;
       font-size: 24px;
+      transition: all 0.3s ease;
+    }
+    
+    .testimonial-card:hover .testimonial-decoration {
+      transform: scale(1.2) rotate(15deg);
+    }
+    
+    /* Blog Section */
+    .blog {
+      padding: 80px 0;
+      background-color: #f9f9f9;
+    }
+    
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+    
+    .blog-card {
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .blog-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+    }
+    
+    .blog-image {
+      height: 200px;
+      overflow: hidden;
+    }
+    
+    .blog-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .blog-card:hover .blog-image img {
+      transform: scale(1.1);
+    }
+    
+    .blog-content {
+      padding: 24px;
+    }
+    
+    .blog-date {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+    
+    .blog-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .blog-card:hover .blog-title {
+      color: #ffc107;
+    }
+    
+    .blog-excerpt {
+      color: #666;
+      margin-bottom: 16px;
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    .blog-link {
+      color: #ffc107;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+    
+    .blog-link:hover {
+      color: #ffb300;
+      transform: translateX(5px);
     }
     
     /* Contact Section */
     .contact {
       padding: 80px 0;
       background-color: #f9f9f9;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .contact-container {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .contact-decoration {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: rgba(255, 193, 7, 0.1);
+      z-index: 0;
+    }
+    
+    .contact-decoration-1 {
+      top: -80px;
+      left: -80px;
+    }
+    
+    .contact-decoration-2 {
+      bottom: -80px;
+      right: -80px;
+    }
+    
+    .contact-info {
+      margin-top: 40px;
+      text-align: center;
+    }
+    
+    .contact-info-item {
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-info-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .contact-info-icon {
+      font-size: 24px;
+      color: #ffc107;
+      margin-bottom: 10px;
+    }
+    
+    .contact-info-text {
+      font-weight: 500;
+    }
+    
+    .contact-info-subtext {
+      color: #666;
+    }
+    
+    .contact-social {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 32px;
+    }
+    
+    .contact-social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #f9f9f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-social-icon:hover {
+      background-color: #ffc107;
+      color: #fff;
+      transform: translateY(-5px);
     }
     
     /* Footer */
@@ -567,12 +928,324 @@
       padding: 60px 0 20px;
     }
     
+    .footer-logo {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    .footer-logo span {
+      color: #ffc107;
+    }
+    
+    .footer-description {
+      color: #ccc;
+      margin-bottom: 24px;
+      max-width: 400px;
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    
+    .footer-social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-social-icon:hover {
+      background-color: #ffc107;
+      transform: translateY(-5px);
+    }
+    
+    .footer-copyright {
+      text-align: center;
+      border-top: 1px solid #555;
+      padding-top: 20px;
+      color: #ccc;
+      font-size: 14px;
+    }
+
+    /* Single Blog Post Page */
+    .blog-post {
+      padding: 120px 0 80px;
+    }
+    
+    .blog-post-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .blog-post-header {
+      margin-bottom: 40px;
+    }
+    
+    .blog-post-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    
+    .blog-post-meta {
+      display: flex;
+      align-items: center;
+      color: #666;
+      margin-bottom: 24px;
+    }
+    
+    .blog-post-author {
+      display: flex;
+      align-items: center;
+      margin-right: 24px;
+    }
+    
+    .blog-post-author-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 12px;
+    }
+    
+    .blog-post-author-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .blog-post-date {
+      display: flex;
+      align-items: center;
+    }
+    
+    .blog-post-featured-image {
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+    
+    .blog-post-featured-image img {
+      width: 100%;
+      height: auto;
+    }
+    
+    .blog-post-content {
+      line-height: 1.8;
+    }
+    
+    .blog-post-content p {
+      margin-bottom: 24px;
+    }
+    
+    .blog-post-content h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-top: 40px;
+      margin-bottom: 16px;
+    }
+    
+    .blog-post-content h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-top: 32px;
+      margin-bottom: 16px;
+    }
+    
+    .blog-post-content ul, 
+    .blog-post-content ol {
+      margin-bottom: 24px;
+      padding-left: 24px;
+    }
+    
+    .blog-post-content li {
+      margin-bottom: 8px;
+    }
+    
+    .blog-post-content blockquote {
+      border-left: 4px solid #ffc107;
+      padding-left: 20px;
+      font-style: italic;
+      color: #666;
+      margin: 32px 0;
+    }
+    
+    .blog-post-content img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 24px 0;
+    }
+    
+    .blog-post-tags {
+      margin-top: 40px;
+    }
+    
+    .blog-post-tag {
+      display: inline-block;
+      padding: 6px 16px;
+      background-color: #f9f9f9;
+      color: #666;
+      border-radius: 100px;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .blog-post-tag:hover {
+      background-color: #ffc107;
+      color: #fff;
+    }
+    
+    .blog-post-share {
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .blog-post-share-title {
+      margin-right: 16px;
+      font-weight: 500;
+    }
+    
+    .blog-post-share-icons {
+      display: flex;
+      gap: 12px;
+    }
+    
+    .blog-post-share-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: #f9f9f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      transition: all 0.3s ease;
+    }
+    
+    .blog-post-share-icon:hover {
+      background-color: #ffc107;
+      color: #fff;
+      transform: translateY(-3px);
+    }
+    
+    .blog-post-navigation {
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .blog-post-nav-link {
+      max-width: 48%;
+    }
+    
+    .blog-post-nav-label {
+      color: #666;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    
+    .blog-post-nav-title {
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .blog-post-nav-link:hover .blog-post-nav-title {
+      color: #ffc107;
+    }
+
+    /* Related Posts */
+    .related-posts {
+      margin-top: 80px;
+    }
+
+    .related-posts-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .related-posts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInScale {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+    
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(20px);
+      }
+    }
+    
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    
     /* Media Queries */
     @media (max-width: 992px) {
       .services-grid,
       .portfolio-grid,
-      .testimonials-grid {
+      .testimonials-grid,
+      .blog-grid,
+      .related-posts-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .hero-title {
+        font-size: 40px;
+      }
+      
+      .hero-subtitle {
+        font-size: 22px;
+      }
+      
+      .section-title {
+        font-size: 32px;
+      }
+      
+      .blog-post-title {
+        font-size: 32px;
       }
     }
     
@@ -588,6 +1261,7 @@
         padding: 20px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         border-radius: 0 0 8px 8px;
+        z-index: 10;
       }
       
       .navbar-menu.active {
@@ -596,6 +1270,7 @@
       
       .navbar-menu li {
         margin: 10px 0;
+        text-align: center;
       }
       
       .navbar-toggle {
@@ -622,7 +1297,9 @@
       .services-grid,
       .portfolio-grid,
       .testimonials-grid,
-      .about-stats {
+      .blog-grid,
+      .about-stats,
+      .related-posts-grid {
         grid-template-columns: 1fr;
       }
       
@@ -637,6 +1314,43 @@
       .section-title {
         font-size: 30px;
       }
+      
+      .portfolio-filters {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .contact-container {
+        padding: 30px 20px;
+      }
+      
+      .blog-post-navigation {
+        flex-direction: column;
+        gap: 24px;
+      }
+      
+      .blog-post-nav-link {
+        max-width: 100%;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-image-container {
+        width: 250px;
+        height: 250px;
+      }
+      
+      .hero-title {
+        font-size: 30px;
+      }
+      
+      .hero-subtitle {
+        font-size: 18px;
+      }
+      
+      .section-title {
+        font-size: 28px;
+      }
     }
   </style>
 </head>
@@ -644,7 +1358,7 @@
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
     <div class="container navbar-container">
-      <a href="#" class="navbar-logo">
+      <a href="/" class="navbar-logo">
         <span>Salam</span> Creative
       </a>
       
@@ -653,18 +1367,20 @@
       </button>
       
       <ul class="navbar-menu" id="navbar-menu">
-        <li><a href="#" class="active">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Portfolio</a></li>
-        <li><a href="#">Testimonials</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/p/about">About</a></li>
+        <li><a href="/p/services">Services</a></li>
+        <li><a href="/p/portfolio">Portfolio</a></li>
+        <li><a href="/p/testimonials">Testimonials</a></li>
+        <li><a href="/p/blog">Blog</a></li>
+        <li><a href="/p/contact">Contact</a></li>
       </ul>
     </div>
   </nav>
   
   <!-- Hero Section -->
   <section class="hero">
+    <div id="hero-3d" class="hero-3d-container"></div>
     <div class="container hero-content">
       <div class="hero-text">
         <h1 class="hero-title">
@@ -677,12 +1393,12 @@
           Delivering creative solutions that help businesses grow their online presence
           and stand out in the digital world.
         </p>
-        <div style="display: flex; flex-direction: column; gap: 16px; max-width: 400px;">
-          <a href="#" class="btn-primary" style="display: flex; align-items: center; justify-content: center;">
+        <div class="hero-buttons">
+          <a href="/p/portfolio" class="btn-primary" style="display: flex; align-items: center; justify-content: center;">
             View My Work
             <span style="margin-left: 8px;">→</span>
           </a>
-          <a href="#" class="btn-outline" style="display: flex; align-items: center; justify-content: center;">
+          <a href="/p/contact" class="btn-outline" style="display: flex; align-items: center; justify-content: center;">
             Get In Touch
           </a>
         </div>
@@ -704,7 +1420,7 @@
   <!-- About Section -->
   <section class="about">
     <div class="container about-content">
-      <div class="about-text">
+      <div class="about-text" data-aos="fade-left" data-aos-duration="1000">
         <h2 class="about-title">About Me</h2>
         <p class="about-description">
           I'm a passionate Digital Marketing & Graphic Design professional with over 5 years of experience helping businesses grow their online presence and create memorable brand identities.
@@ -714,7 +1430,7 @@
         </p>
         
         <div class="about-stats">
-          <div class="about-stat-item">
+          <div class="about-stat-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
             <div class="about-stat-icon">
               💼
             </div>
@@ -724,7 +1440,7 @@
             </div>
           </div>
           
-          <div class="about-stat-item">
+          <div class="about-stat-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
             <div class="about-stat-icon">
               ⭐
             </div>
@@ -734,7 +1450,7 @@
             </div>
           </div>
           
-          <div class="about-stat-item">
+          <div class="about-stat-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
             <div class="about-stat-icon">
               🏆
             </div>
@@ -745,16 +1461,16 @@
           </div>
         </div>
         
-        <a href="#" class="btn-outline" style="display: inline-flex; align-items: center;">
+        <a href="/p/about" class="btn-outline" style="display: inline-flex; align-items: center;">
           Learn More About Me <span style="margin-left: 8px;">→</span>
         </a>
       </div>
       
-      <div class="about-image">
+      <div class="about-image" data-aos="fade-right" data-aos-duration="1000">
         <div class="about-image-container">
           <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Md. Abdus Salam Working">
         </div>
-        <div class="about-badge">
+        <div class="about-badge" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="400">
           <h3 class="about-badge-title">Passionate</h3>
           <p class="about-badge-subtitle">About Design & Marketing</p>
         </div>
@@ -764,14 +1480,16 @@
   
   <!-- Services Section -->
   <section class="services">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
     <div class="container">
-      <h2 class="section-title">My Services</h2>
-      <p class="section-subtitle">
+      <h2 class="section-title" data-aos="fade-up" data-aos-duration="800">My Services</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
         I offer comprehensive creative solutions to help your business thrive in the digital landscape.
       </p>
       
       <div class="services-grid">
-        <div class="service-card">
+        <div class="service-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
           <div class="service-icon">🌐</div>
           <h3 class="service-title">Digital Marketing</h3>
           <p class="service-description">
@@ -797,12 +1515,12 @@
             </div>
           </div>
           
-          <a href="#" class="service-link">
+          <a href="/p/services" class="service-link">
             Learn More <span style="margin-left: 4px;">→</span>
           </a>
         </div>
         
-        <div class="service-card">
+        <div class="service-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
           <div class="service-icon">🎨</div>
           <h3 class="service-title">Graphic Design</h3>
           <p class="service-description">
@@ -828,12 +1546,12 @@
             </div>
           </div>
           
-          <a href="#" class="service-link">
+          <a href="/p/services" class="service-link">
             Learn More <span style="margin-left: 4px;">→</span>
           </a>
         </div>
         
-        <div class="service-card">
+        <div class="service-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
           <div class="service-icon">⚙️</div>
           <h3 class="service-title">Business Strategy</h3>
           <p class="service-description">
@@ -859,7 +1577,7 @@
             </div>
           </div>
           
-          <a href="#" class="service-link">
+          <a href="/p/services" class="service-link">
             Learn More <span style="margin-left: 4px;">→</span>
           </a>
         </div>
@@ -870,19 +1588,19 @@
   <!-- Portfolio Section -->
   <section class="portfolio">
     <div class="container">
-      <h2 class="section-title">My Portfolio</h2>
-      <p class="section-subtitle">
+      <h2 class="section-title" data-aos="fade-up" data-aos-duration="800">My Portfolio</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
         Check out some of my recent projects and see how I've helped businesses achieve their goals.
       </p>
       
-      <div class="portfolio-filters">
+      <div class="portfolio-filters" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
         <button class="portfolio-filter-btn active" data-filter="all">All</button>
         <button class="portfolio-filter-btn" data-filter="digital-marketing">Digital Marketing</button>
         <button class="portfolio-filter-btn" data-filter="graphic-design">Graphic Design</button>
       </div>
       
       <div class="portfolio-grid">
-        <div class="portfolio-item" data-category="graphic-design">
+        <div class="portfolio-item" data-category="graphic-design" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
           <div class="portfolio-image">
             <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Brand Identity Design">
           </div>
@@ -892,7 +1610,7 @@
           </div>
         </div>
         
-        <div class="portfolio-item" data-category="digital-marketing">
+        <div class="portfolio-item" data-category="digital-marketing" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
           <div class="portfolio-image">
             <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="SEO Campaign">
           </div>
@@ -902,7 +1620,7 @@
           </div>
         </div>
         
-        <div class="portfolio-item" data-category="graphic-design">
+        <div class="portfolio-item" data-category="graphic-design" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
           <div class="portfolio-image">
             <img src="https://images.unsplash.com/photo-1586717799252-bd134ad00e26?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Marketing Materials">
           </div>
@@ -912,7 +1630,7 @@
           </div>
         </div>
         
-        <div class="portfolio-item" data-category="digital-marketing">
+        <div class="portfolio-item" data-category="digital-marketing" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
           <div class="portfolio-image">
             <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Social Media Strategy">
           </div>
@@ -922,7 +1640,7 @@
           </div>
         </div>
         
-        <div class="portfolio-item" data-category="graphic-design">
+        <div class="portfolio-item" data-category="graphic-design" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
           <div class="portfolio-image">
             <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="UI/UX Website Design">
           </div>
@@ -932,7 +1650,7 @@
           </div>
         </div>
         
-        <div class="portfolio-item" data-category="digital-marketing">
+        <div class="portfolio-item" data-category="digital-marketing" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
           <div class="portfolio-image">
             <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Content Marketing">
           </div>
@@ -943,8 +1661,8 @@
         </div>
       </div>
       
-      <div style="text-align: center; margin-top: 48px;">
-        <a href="#" class="btn-primary" style="display: inline-flex; align-items: center;">
+      <div style="text-align: center; margin-top: 48px;" data-aos="fade-up" data-aos-duration="800" data-aos-delay="700">
+        <a href="/p/portfolio" class="btn-primary" style="display: inline-flex; align-items: center;">
           View All Projects <span style="margin-left: 8px;">→</span>
         </a>
       </div>
@@ -954,13 +1672,13 @@
   <!-- Testimonials Section -->
   <section class="testimonials">
     <div class="container">
-      <h2 class="section-title">Client Testimonials</h2>
-      <p class="section-subtitle">
+      <h2 class="section-title" data-aos="fade-up" data-aos-duration="800">Client Testimonials</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
         Don't just take my word for it. Here's what my clients have to say about working with me.
       </p>
       
       <div class="testimonials-grid">
-        <div class="testimonial-card">
+        <div class="testimonial-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
           <div class="testimonial-header">
             <div class="testimonial-author">
               <div class="testimonial-avatar">
@@ -986,7 +1704,7 @@
           <div class="testimonial-decoration">"</div>
         </div>
         
-        <div class="testimonial-card">
+        <div class="testimonial-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
           <div class="testimonial-header">
             <div class="testimonial-author">
               <div class="testimonial-avatar">
@@ -1012,7 +1730,7 @@
           <div class="testimonial-decoration">"</div>
         </div>
         
-        <div class="testimonial-card">
+        <div class="testimonial-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
           <div class="testimonial-header">
             <div class="testimonial-author">
               <div class="testimonial-avatar">
@@ -1039,9 +1757,75 @@
         </div>
       </div>
       
-      <div style="text-align: center; margin-top: 48px;">
-        <a href="#" class="btn-primary" style="display: inline-flex; align-items: center;">
+      <div style="text-align: center; margin-top: 48px;" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+        <a href="/p/testimonials" class="btn-primary" style="display: inline-flex; align-items: center;">
           View All Testimonials <span style="margin-left: 8px;">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Blog Section -->
+  <section class="blog">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up" data-aos-duration="800">Latest Articles</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+        Insights and tips on digital marketing, graphic design, and business strategy.
+      </p>
+      
+      <div class="blog-grid">
+        <div class="blog-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+          <div class="blog-image">
+            <img src="https://images.unsplash.com/photo-1533750516457-a7f992034fec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="7 SEO Strategies">
+          </div>
+          <div class="blog-content">
+            <div class="blog-date">June 15, 2025</div>
+            <h3 class="blog-title">7 Proven SEO Strategies for Small Businesses in 2025</h3>
+            <p class="blog-excerpt">
+              Discover the most effective SEO strategies that can help small businesses increase their online visibility and drive organic traffic to their websites.
+            </p>
+            <a href="/p/blog-post-seo-strategies" class="blog-link">
+              Read More <span style="margin-left: 4px;">→</span>
+            </a>
+          </div>
+        </div>
+        
+        <div class="blog-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+          <div class="blog-image">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Social Media Marketing">
+          </div>
+          <div class="blog-content">
+            <div class="blog-date">June 8, 2025</div>
+            <h3 class="blog-title">The Ultimate Social Media Content Calendar Template</h3>
+            <p class="blog-excerpt">
+              Learn how to create an effective social media content calendar that will help you stay consistent and engage with your audience more effectively.
+            </p>
+            <a href="/p/blog-post-social-media-calendar" class="blog-link">
+              Read More <span style="margin-left: 4px;">→</span>
+            </a>
+          </div>
+        </div>
+        
+        <div class="blog-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+          <div class="blog-image">
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Brand Identity">
+          </div>
+          <div class="blog-content">
+            <div class="blog-date">May 30, 2025</div>
+            <h3 class="blog-title">How to Create a Memorable Brand Identity From Scratch</h3>
+            <p class="blog-excerpt">
+              A step-by-step guide to developing a unique and memorable brand identity that resonates with your target audience and sets you apart from competitors.
+            </p>
+            <a href="/p/blog-post-brand-identity" class="blog-link">
+              Read More <span style="margin-left: 4px;">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 48px;" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+        <a href="/p/blog" class="btn-primary" style="display: inline-flex; align-items: center;">
+          View All Articles <span style="margin-left: 8px;">→</span>
         </a>
       </div>
     </div>
@@ -1049,17 +1833,53 @@
   
   <!-- Contact Section -->
   <section class="contact">
+    <div class="contact-decoration contact-decoration-1"></div>
+    <div class="contact-decoration contact-decoration-2"></div>
     <div class="container">
-      <h2 class="section-title">Get In Touch</h2>
-      <p class="section-subtitle">
+      <h2 class="section-title" data-aos="fade-up" data-aos-duration="800">Get In Touch</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
         Have a project in mind? Let's discuss how I can help you achieve your goals.
       </p>
       
-      <!-- Contact form would go here - simplified for Blogger -->
-      <div style="max-width: 600px; margin: 0 auto; background: white; padding: 32px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-        <p style="text-align: center; margin-bottom: 24px;">
-          For inquiries, please email me at <a href="mailto:contact@salamcreative.com" style="color: #ffc107; font-weight: 500;">contact@salamcreative.com</a>
-        </p>
+      <div class="contact-container" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+        <div class="contact-info">
+          <div class="contact-info-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+            <div class="contact-info-icon">📧</div>
+            <h4 class="contact-info-text">Email</h4>
+            <p class="contact-info-subtext">
+              <a href="mailto:contact@salamcreative.com" style="color: #ffc107; text-decoration: none;">contact@salamcreative.com</a>
+            </p>
+          </div>
+          
+          <div class="contact-info-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+            <div class="contact-info-icon">📱</div>
+            <h4 class="contact-info-text">Phone</h4>
+            <p class="contact-info-subtext">
+              <a href="tel:+1234567890" style="color: #ffc107; text-decoration: none;">+1 (234) 567-890</a>
+            </p>
+          </div>
+          
+          <div class="contact-info-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
+            <div class="contact-info-icon">📍</div>
+            <h4 class="contact-info-text">Location</h4>
+            <p class="contact-info-subtext">New York City, NY, USA</p>
+          </div>
+        </div>
+        
+        <div class="contact-social" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
+          <a href="#" class="contact-social-icon">
+            <span>🔗</span>
+          </a>
+          <a href="#" class="contact-social-icon">
+            <span>🔗</span>
+          </a>
+          <a href="#" class="contact-social-icon">
+            <span>🔗</span>
+          </a>
+          <a href="#" class="contact-social-icon">
+            <span>🔗</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -1068,30 +1888,242 @@
   <footer class="footer">
     <div class="container">
       <div style="text-align: center; padding-bottom: 20px;">
-        <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">
-          <span style="color: #ffc107;">Salam</span> Creative
+        <h3 class="footer-logo">
+          <span>Salam</span> Creative
         </h3>
-        <p style="color: #ccc; margin-bottom: 24px;">Digital Marketing & Graphic Design Expert</p>
+        <p class="footer-description" style="text-align: center; margin: 0 auto 24px;">
+          Digital Marketing & Graphic Design Expert
+        </p>
         
-        <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 32px;">
-          <a href="#" style="color: #fff; font-size: 24px;">🔗</a>
-          <a href="#" style="color: #fff; font-size: 24px;">🔗</a>
-          <a href="#" style="color: #fff; font-size: 24px;">🔗</a>
-          <a href="#" style="color: #fff; font-size: 24px;">🔗</a>
+        <div class="footer-social">
+          <a href="#" class="footer-social-icon">🔗</a>
+          <a href="#" class="footer-social-icon">🔗</a>
+          <a href="#" class="footer-social-icon">🔗</a>
+          <a href="#" class="footer-social-icon">🔗</a>
         </div>
       </div>
       
-      <div style="text-align: center; border-top: 1px solid #555; padding-top: 20px;">
-        <p style="color: #ccc; font-size: 14px;">
+      <div class="footer-copyright">
+        <p>
           © 2025 Md. Abdus Salam. All rights reserved.
         </p>
       </div>
     </div>
   </footer>
   
+  <!-- Blog Post Layout Template (hidden, for Blogger to use) -->
+  <div style="display: none;">
+    <!-- Blog Post Template -->
+    <div class="blog-post">
+      <div class="container blog-post-container">
+        <div class="blog-post-header">
+          <h1 class="blog-post-title"><!--Blog Post Title--></h1>
+          
+          <div class="blog-post-meta">
+            <div class="blog-post-author">
+              <div class="blog-post-author-img">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Md. Abdus Salam">
+              </div>
+              <span>Md. Abdus Salam</span>
+            </div>
+            
+            <div class="blog-post-date">
+              <span><!--Blog Post Date--></span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="blog-post-featured-image">
+          <img src="<!--Featured Image URL-->" alt="<!--Blog Post Title-->">
+        </div>
+        
+        <div class="blog-post-content">
+          <!--Blog Post Content-->
+        </div>
+        
+        <div class="blog-post-tags">
+          <!--Blog Post Tags-->
+        </div>
+        
+        <div class="blog-post-share">
+          <span class="blog-post-share-title">Share:</span>
+          <div class="blog-post-share-icons">
+            <a href="#" class="blog-post-share-icon">🔗</a>
+            <a href="#" class="blog-post-share-icon">🔗</a>
+            <a href="#" class="blog-post-share-icon">🔗</a>
+          </div>
+        </div>
+        
+        <div class="blog-post-navigation">
+          <div class="blog-post-nav-link">
+            <div class="blog-post-nav-label">Previous Post</div>
+            <div class="blog-post-nav-title"><!--Previous Post Title--></div>
+          </div>
+          
+          <div class="blog-post-nav-link" style="text-align: right;">
+            <div class="blog-post-nav-label">Next Post</div>
+            <div class="blog-post-nav-title"><!--Next Post Title--></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="related-posts">
+        <div class="container">
+          <h3 class="related-posts-title">You Might Also Like</h3>
+          
+          <div class="related-posts-grid">
+            <!--Related Posts-->
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Sample Blog Posts Content -->
+    <!-- Blog Post 1: SEO Strategies -->
+    <div class="blog-post-content-1">
+      <p>In today's competitive digital landscape, small businesses need effective SEO strategies more than ever to stand out from the crowd. With search engines constantly evolving their algorithms, staying updated with the latest SEO practices is crucial for maintaining and improving your online visibility.</p>
+      
+      <h2>1. Focus on Local SEO</h2>
+      <p>For small businesses, local SEO can be a game-changer. Start by claiming and optimizing your Google Business Profile, ensuring all information is accurate and up-to-date. Include local keywords in your content, meta descriptions, and URLs. Encourage satisfied customers to leave positive reviews, as they significantly impact local search rankings.</p>
+      
+      <h2>2. Optimize for Voice Search</h2>
+      <p>With the rising popularity of voice assistants like Siri, Alexa, and Google Assistant, optimizing for voice search has become essential. Voice searches tend to be more conversational and question-based. Create content that answers specific questions your customers might ask and focus on long-tail keywords that mimic natural speech patterns.</p>
+      
+      <h2>3. Create Quality Content Consistently</h2>
+      <p>Content remains king in SEO. Develop a content strategy that provides value to your audience while incorporating relevant keywords naturally. Regularly publishing high-quality, informative content signals to search engines that your website is active and authoritative in your industry.</p>
+      
+      <h2>4. Improve Page Speed</h2>
+      <p>Site speed is a critical ranking factor. Slow-loading pages lead to higher bounce rates and lower conversions. Optimize images, leverage browser caching, minimize code, and consider using a Content Delivery Network (CDN) to enhance your website's performance.</p>
+      
+      <h2>5. Build Quality Backlinks</h2>
+      <p>Backlinks from reputable websites act as votes of confidence for your site. Focus on earning high-quality backlinks through guest posting, creating shareable content, and building relationships with industry influencers. Remember, quality always trumps quantity when it comes to backlinks.</p>
+      
+      <h2>6. Optimize for Mobile</h2>
+      <p>With Google's mobile-first indexing, ensuring your website is mobile-friendly is non-negotiable. Implement responsive design, use larger fonts and buttons for touchscreens, and test your site across various mobile devices to provide a seamless user experience.</p>
+      
+      <h2>7. Leverage Video SEO</h2>
+      <p>Video content can significantly boost your SEO efforts. Create valuable video content, optimize titles and descriptions with relevant keywords, add transcripts, and embed videos on your website to increase engagement and dwell time.</p>
+      
+      <h3>Conclusion</h3>
+      <p>Implementing these seven SEO strategies can help small businesses improve their search rankings and drive more organic traffic to their websites. Remember that SEO is a long-term investment, and consistency is key. Keep adapting your strategy as search engines evolve, and you'll see sustainable results over time.</p>
+      
+      <p>If you need professional help with your SEO strategy, don't hesitate to <a href="/p/contact" style="color: #ffc107;">get in touch</a>. I offer customized digital marketing solutions designed to help small businesses thrive online.</p>
+    </div>
+    
+    <!-- Blog Post 2: Social Media Calendar -->
+    <div class="blog-post-content-2">
+      <p>Maintaining a consistent and engaging social media presence is essential for businesses of all sizes. However, without proper planning, it's easy to feel overwhelmed or run out of content ideas. This is where a social media content calendar comes in handy. Let me show you how to create an effective one that will streamline your social media strategy.</p>
+      
+      <h2>Why You Need a Social Media Content Calendar</h2>
+      <p>Before diving into the how-to, let's understand why a content calendar is crucial:</p>
+      <ul>
+        <li>It helps maintain consistency in posting</li>
+        <li>It saves time through batch content creation</li>
+        <li>It ensures you don't miss important dates or events</li>
+        <li>It allows you to plan content around marketing campaigns</li>
+        <li>It provides a comprehensive overview of your content strategy</li>
+      </ul>
+      
+      <h2>Step 1: Choose Your Calendar Tool</h2>
+      <p>You can use various tools to create your content calendar, from simple spreadsheets to specialized software. Popular options include:</p>
+      <ul>
+        <li>Google Sheets or Microsoft Excel (free and flexible)</li>
+        <li>Trello (visual organization with cards)</li>
+        <li>Asana or Monday.com (team collaboration features)</li>
+        <li>Specialized tools like Hootsuite or Buffer (with scheduling capabilities)</li>
+      </ul>
+      <p>Choose the one that best fits your needs and budget. For this guide, I'll use Google Sheets as it's accessible to everyone.</p>
+      
+      <h2>Step 2: Define Your Content Categories</h2>
+      <p>Create content pillars or categories to ensure a balanced mix of posts. For example:</p>
+      <ul>
+        <li>Educational content (tips, how-tos, industry insights)</li>
+        <li>Promotional content (products, services, offers)</li>
+        <li>Engaging content (questions, polls, contests)</li>
+        <li>User-generated content or testimonials</li>
+        <li>Behind-the-scenes content</li>
+        <li>Curated content from industry leaders</li>
+      </ul>
+      <p>Aim for a healthy balance, following the 80/20 rule: 80% value-adding content and 20% promotional content.</p>
+      
+      <h2>Step 3: Set Up Your Calendar Structure</h2>
+      <p>Create a spreadsheet with the following columns:</p>
+      <ul>
+        <li>Date and time</li>
+        <li>Platform (Facebook, Instagram, LinkedIn, etc.)</li>
+        <li>Content category</li>
+        <li>Content type (image, video, carousel, etc.)</li>
+        <li>Caption/Copy</li>
+        <li>Visual assets</li>
+        <li>Hashtags</li>
+        <li>Status (planned, created, scheduled, published)</li>
+      </ul>
+      
+      <h2>Step 4: Research Important Dates and Events</h2>
+      <p>Identify dates that are relevant to your business and audience:</p>
+      <ul>
+        <li>Industry-specific events or awareness days</li>
+        <li>Seasonal events (holidays, seasons, local events)</li>
+        <li>Company milestones or announcements</li>
+        <li>Product launches or promotions</li>
+      </ul>
+      <p>Mark these dates in your calendar to plan special content around them.</p>
+      
+      <h2>Step 5: Determine Your Posting Frequency</h2>
+      <p>Decide how often you'll post on each platform. Here's a general guideline:</p>
+      <ul>
+        <li>Facebook: 3-5 times per week</li>
+        <li>Instagram: 4-7 times per week</li>
+        <li>Twitter: 1-5 times per day</li>
+        <li>LinkedIn: 2-5 times per week</li>
+        <li>Pinterest: 5-10 times per day</li>
+      </ul>
+      <p>Adjust based on your resources and audience engagement.</p>
+      
+      <h2>Step 6: Fill Your Calendar with Content Ideas</h2>
+      <p>Now it's time to populate your calendar with actual content ideas. Use your content categories and important dates as a framework. Plan at least two weeks in advance, preferably a month.</p>
+      
+      <h2>Step 7: Create a Content Production Workflow</h2>
+      <p>Establish a clear process for content creation:</p>
+      <ol>
+        <li>Content ideation and approval</li>
+        <li>Copy writing</li>
+        <li>Visual asset creation</li>
+        <li>Content review</li>
+        <li>Scheduling</li>
+        <li>Monitoring and engagement</li>
+      </ol>
+      <p>Set deadlines for each step to ensure smooth implementation.</p>
+      
+      <h2>Step 8: Schedule and Automate</h2>
+      <p>Use scheduling tools like Buffer, Hootsuite, or Later to schedule your content in advance. This saves time and ensures consistency even when you're busy.</p>
+      
+      <h3>Bonus Tips:</h3>
+      <ul>
+        <li>Leave room for real-time content and trending topics</li>
+        <li>Review and analyze performance regularly to refine your strategy</li>
+        <li>Repurpose successful content across different platforms</li>
+        <li>Create content in batches to improve efficiency</li>
+      </ul>
+      
+      <p>By following this template and process, you'll create a social media content calendar that brings structure to your digital marketing efforts while still allowing flexibility for spontaneous content.</p>
+      
+      <p>Need help developing a tailored social media strategy for your business? <a href="/p/contact" style="color: #ffc107;">Contact me</a> for a consultation.</p>
+    </div>
+    
+    <!-- More blog post content examples can be added here -->
+  </div>
+  
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
-    // Simple JavaScript for mobile menu toggle
+    // Initialize AOS animation library
     document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({
+        duration: 800,
+        once: true
+      });
+      
+      // Simple JavaScript for mobile menu toggle
       const navbarToggle = document.getElementById('navbar-toggle');
       const navbarMenu = document.getElementById('navbar-menu');
       const navbar = document.getElementById('navbar');
@@ -1136,7 +2168,119 @@
           navbar.style.boxShadow = 'none';
         }
       });
+      
+      // 3D animated background for hero section
+      if (typeof THREE !== 'undefined') {
+        // Set up the scene
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        
+        // Create renderer
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setClearColor(0x000000, 0); // Transparent background
+        
+        const heroContainer = document.getElementById('hero-3d');
+        heroContainer.appendChild(renderer.domElement);
+        
+        // Add ambient light
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        scene.add(ambientLight);
+        
+        // Add directional light
+        const directionalLight = new THREE.DirectionalLight(0xffc107, 1);
+        directionalLight.position.set(1, 1, 1);
+        scene.add(directionalLight);
+        
+        // Create particles
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particlesCount = 500;
+        
+        // Create arrays for positions
+        const positions = new Float32Array(particlesCount * 3);
+        
+        // Fill the arrays with random positions
+        for (let i = 0; i < particlesCount * 3; i += 3) {
+          positions[i] = (Math.random() - 0.5) * 10;
+          positions[i + 1] = (Math.random() - 0.5) * 10;
+          positions[i + 2] = (Math.random() - 0.5) * 10;
+        }
+        
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        
+        // Create material
+        const particlesMaterial = new THREE.PointsMaterial({ 
+          size: 0.02,
+          color: 0xffc107,
+          transparent: true,
+          opacity: 0.8,
+          blending: THREE.AdditiveBlending
+        });
+        
+        // Create the mesh
+        const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particles);
+        
+        // Position camera
+        camera.position.z = 5;
+        
+        // Create spheres
+        const sphereGeometry = new THREE.SphereGeometry(0.5, 16, 16);
+        const sphereMaterial = new THREE.MeshPhongMaterial({ 
+          color: 0xffc107,
+          transparent: true,
+          opacity: 0.3
+        });
+        
+        // Create multiple spheres
+        const spheres = [];
+        for (let i = 0; i < 5; i++) {
+          const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+          sphere.position.set(
+            (Math.random() - 0.5) * 8,
+            (Math.random() - 0.5) * 8,
+            (Math.random() - 0.5) * 8
+          );
+          sphere.scale.setScalar(Math.random() * 1 + 0.5);
+          scene.add(sphere);
+          spheres.push({
+            mesh: sphere,
+            speed: Math.random() * 0.002 + 0.001,
+            rotationAxis: new THREE.Vector3(
+              Math.random() - 0.5,
+              Math.random() - 0.5,
+              Math.random() - 0.5
+            ).normalize()
+          });
+        }
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+        
+        // Animation loop
+        function animate() {
+          requestAnimationFrame(animate);
+          
+          // Rotate particles
+          particles.rotation.x += 0.0005;
+          particles.rotation.y += 0.0005;
+          
+          // Animate spheres
+          spheres.forEach((sphere) => {
+            sphere.mesh.rotateOnAxis(sphere.rotationAxis, sphere.speed);
+          });
+          
+          renderer.render(scene, camera);
+        }
+        
+        animate();
+      }
     });
   </script>
 </body>
 </html>
+
