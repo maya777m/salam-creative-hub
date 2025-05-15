@@ -1,0 +1,1142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Md. Abdus Salam - Digital Marketing & Graphic Design Expert</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #333333;
+      line-height: 1.6;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Buttons */
+    .btn-primary {
+      display: inline-block;
+      background-color: #ffc107;
+      color: #fff;
+      font-weight: 500;
+      padding: 10px 24px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    
+    .btn-primary:hover {
+      background-color: #ffb300;
+    }
+    
+    .btn-outline {
+      display: inline-block;
+      border: 2px solid #ffc107;
+      color: #ffc107;
+      background: transparent;
+      font-weight: 500;
+      padding: 10px 24px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    
+    .btn-outline:hover {
+      background-color: #ffc107;
+      color: #fff;
+    }
+    
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      transition: all 0.3s ease;
+      padding: 20px 0;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .navbar-logo {
+      font-weight: 700;
+      font-size: 24px;
+      text-decoration: none;
+      color: #333333;
+    }
+    
+    .navbar-logo span {
+      color: #ffc107;
+    }
+    
+    .navbar-menu {
+      display: flex;
+      list-style: none;
+    }
+    
+    .navbar-menu li {
+      margin-left: 24px;
+    }
+    
+    .navbar-menu a {
+      font-weight: 500;
+      text-decoration: none;
+      color: #333333;
+      transition: color 0.3s ease;
+    }
+    
+    .navbar-menu a:hover, .navbar-menu a.active {
+      color: #ffc107;
+    }
+    
+    .navbar-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding-top: 120px;
+      padding-bottom: 80px;
+      background: linear-gradient(to bottom, #fff8e1, #ffffff);
+    }
+    
+    .hero-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .hero-text {
+      width: 50%;
+    }
+    
+    .hero-image {
+      width: 40%;
+      position: relative;
+    }
+    
+    .hero-title {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+      font-size: 24px;
+      font-weight: 500;
+      color: #666;
+      margin-bottom: 24px;
+    }
+    
+    .hero-description {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 32px;
+    }
+    
+    .hero-image-container {
+      width: 320px;
+      height: 320px;
+      margin: 0 auto;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid #fff;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      background-color: #ffc107;
+    }
+    
+    .hero-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .hero-decoration {
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      background-color: #fff;
+      padding: 16px;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .hero-decoration-dot {
+      width: 12px;
+      height: 12px;
+      background-color: #ffc107;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 4px;
+    }
+    
+    /* About Section */
+    .about {
+      padding: 80px 0;
+      background-color: #fff;
+    }
+    
+    .about-content {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      gap: 48px;
+    }
+    
+    .about-text {
+      width: 50%;
+    }
+    
+    .about-image {
+      width: 50%;
+      position: relative;
+    }
+    
+    .about-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    
+    .about-description {
+      color: #666;
+      margin-bottom: 24px;
+    }
+    
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    
+    .about-stat-item {
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .about-stat-icon {
+      margin-right: 16px;
+      padding: 12px;
+      background-color: #fff8e1;
+      border-radius: 8px;
+      color: #ffc107;
+    }
+    
+    .about-image-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .about-badge {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background-color: #fff;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .about-badge-title {
+      color: #ffc107;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    
+    .about-badge-subtitle {
+      color: #666;
+      font-size: 14px;
+    }
+    
+    /* Services Section */
+    .services {
+      padding: 80px 0;
+      background-color: #f9f9f9;
+    }
+    
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 32px;
+      position: relative;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background-color: #ffc107;
+      bottom: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .section-subtitle {
+      text-align: center;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto 48px;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+    
+    .service-card {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      border-left: 4px solid #ffc107;
+    }
+    
+    .service-icon {
+      font-size: 40px;
+      color: #ffc107;
+      margin-bottom: 20px;
+    }
+    
+    .service-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    
+    .service-description {
+      color: #666;
+      margin-bottom: 20px;
+    }
+    
+    .service-list {
+      margin-bottom: 24px;
+    }
+    
+    .service-list-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    
+    .service-list-bullet {
+      width: 8px;
+      height: 8px;
+      background-color: #ffc107;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+    
+    .service-link {
+      color: #ffc107;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+    
+    .service-link:hover {
+      text-decoration: underline;
+    }
+    
+    /* Portfolio Section */
+    .portfolio {
+      padding: 80px 0;
+      background-color: #f9f9f9;
+    }
+    
+    .portfolio-filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    
+    .portfolio-filter-btn {
+      padding: 8px 20px;
+      border-radius: 100px;
+      border: none;
+      background-color: #fff;
+      color: #666;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .portfolio-filter-btn.active {
+      background-color: #ffc107;
+      color: #fff;
+    }
+    
+    .portfolio-filter-btn:hover {
+      background-color: #fff8e1;
+    }
+    
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    
+    .portfolio-item {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      background-color: #fff;
+    }
+    
+    .portfolio-image {
+      height: 240px;
+      overflow: hidden;
+    }
+    
+    .portfolio-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .portfolio-item:hover .portfolio-image img {
+      transform: scale(1.1);
+    }
+    
+    .portfolio-content {
+      padding: 16px;
+    }
+    
+    .portfolio-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    .portfolio-category {
+      display: inline-block;
+      padding: 4px 12px;
+      background-color: #fff8e1;
+      color: #ffc107;
+      border-radius: 100px;
+      font-size: 14px;
+    }
+    
+    /* Testimonials Section */
+    .testimonials {
+      padding: 80px 0;
+      background-color: #fff;
+    }
+    
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+    
+    .testimonial-card {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      border-top: 4px solid #ffc107;
+    }
+    
+    .testimonial-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .testimonial-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 16px;
+    }
+    
+    .testimonial-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 18px;
+    }
+    
+    .testimonial-position {
+      color: #666;
+      font-size: 14px;
+    }
+    
+    .testimonial-stars {
+      display: flex;
+      margin-bottom: 16px;
+    }
+    
+    .testimonial-star {
+      color: #ffc107;
+      font-size: 18px;
+      margin-right: 4px;
+    }
+    
+    .testimonial-text {
+      color: #666;
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+    
+    .testimonial-decoration {
+      position: absolute;
+      bottom: -12px;
+      right: -12px;
+      width: 32px;
+      height: 32px;
+      background-color: #ffc107;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 24px;
+    }
+    
+    /* Contact Section */
+    .contact {
+      padding: 80px 0;
+      background-color: #f9f9f9;
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: #333;
+      color: #fff;
+      padding: 60px 0 20px;
+    }
+    
+    /* Media Queries */
+    @media (max-width: 992px) {
+      .services-grid,
+      .portfolio-grid,
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        border-radius: 0 0 8px 8px;
+      }
+      
+      .navbar-menu.active {
+        display: flex;
+      }
+      
+      .navbar-menu li {
+        margin: 10px 0;
+      }
+      
+      .navbar-toggle {
+        display: block;
+      }
+      
+      .hero-content,
+      .about-content {
+        flex-direction: column;
+      }
+      
+      .hero-text,
+      .hero-image,
+      .about-text,
+      .about-image {
+        width: 100%;
+      }
+      
+      .hero-image,
+      .about-text {
+        margin-top: 40px;
+      }
+      
+      .services-grid,
+      .portfolio-grid,
+      .testimonials-grid,
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-title {
+        font-size: 36px;
+      }
+      
+      .hero-subtitle {
+        font-size: 20px;
+      }
+      
+      .section-title {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container navbar-container">
+      <a href="#" class="navbar-logo">
+        <span>Salam</span> Creative
+      </a>
+      
+      <button class="navbar-toggle" id="navbar-toggle">
+        ☰
+      </button>
+      
+      <ul class="navbar-menu" id="navbar-menu">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Testimonials</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          I'm <span style="color: #ffc107;">Md. Abdus Salam</span>
+        </h1>
+        <h2 class="hero-subtitle">
+          Digital Marketing & Graphic Design Expert
+        </h2>
+        <p class="hero-description">
+          Delivering creative solutions that help businesses grow their online presence
+          and stand out in the digital world.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 16px; max-width: 400px;">
+          <a href="#" class="btn-primary" style="display: flex; align-items: center; justify-content: center;">
+            View My Work
+            <span style="margin-left: 8px;">→</span>
+          </a>
+          <a href="#" class="btn-outline" style="display: flex; align-items: center; justify-content: center;">
+            Get In Touch
+          </a>
+        </div>
+      </div>
+      
+      <div class="hero-image">
+        <div class="hero-image-container">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Md. Abdus Salam">
+        </div>
+        <div class="hero-decoration">
+          <span class="hero-decoration-dot"></span>
+          <span class="hero-decoration-dot"></span>
+          <span class="hero-decoration-dot"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- About Section -->
+  <section class="about">
+    <div class="container about-content">
+      <div class="about-text">
+        <h2 class="about-title">About Me</h2>
+        <p class="about-description">
+          I'm a passionate Digital Marketing & Graphic Design professional with over 5 years of experience helping businesses grow their online presence and create memorable brand identities.
+        </p>
+        <p class="about-description">
+          My approach combines creativity with strategic thinking to deliver solutions that not only look good but also drive real business results.
+        </p>
+        
+        <div class="about-stats">
+          <div class="about-stat-item">
+            <div class="about-stat-icon">
+              💼
+            </div>
+            <div>
+              <h4 style="font-weight: 700; margin-bottom: 4px;">5+ Years</h4>
+              <p style="color: #666;">Professional Experience</p>
+            </div>
+          </div>
+          
+          <div class="about-stat-item">
+            <div class="about-stat-icon">
+              ⭐
+            </div>
+            <div>
+              <h4 style="font-weight: 700; margin-bottom: 4px;">100+ Projects</h4>
+              <p style="color: #666;">Successfully Completed</p>
+            </div>
+          </div>
+          
+          <div class="about-stat-item">
+            <div class="about-stat-icon">
+              🏆
+            </div>
+            <div>
+              <h4 style="font-weight: 700; margin-bottom: 4px;">Multiple Awards</h4>
+              <p style="color: #666;">For Excellence in Design</p>
+            </div>
+          </div>
+        </div>
+        
+        <a href="#" class="btn-outline" style="display: inline-flex; align-items: center;">
+          Learn More About Me <span style="margin-left: 8px;">→</span>
+        </a>
+      </div>
+      
+      <div class="about-image">
+        <div class="about-image-container">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Md. Abdus Salam Working">
+        </div>
+        <div class="about-badge">
+          <h3 class="about-badge-title">Passionate</h3>
+          <p class="about-badge-subtitle">About Design & Marketing</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Services Section -->
+  <section class="services">
+    <div class="container">
+      <h2 class="section-title">My Services</h2>
+      <p class="section-subtitle">
+        I offer comprehensive creative solutions to help your business thrive in the digital landscape.
+      </p>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🌐</div>
+          <h3 class="service-title">Digital Marketing</h3>
+          <p class="service-description">
+            Strategic digital marketing solutions to increase your online presence and engage with your target audience effectively.
+          </p>
+          
+          <div class="service-list">
+            <div class="service-list-item">
+              <div class="service-list-bullet"></div>
+              <span>SEO Optimization</span>
+            </div>
+            <div class="service-list-item">
+              <div class="service-list-bullet"></div>
+              <span>Social Media Marketing</span>
+            </div>
+            <div class="service-list-item">
+              <div class="service-list-bullet"></div>
+              <span>Content Strategy</span>
+            </div>
+            <div class="service-list-item">
+              <div class="service-list-bullet"></div>
+              <span>PPC Campaigns</span>
+            </div>
+          </div>
+          
+          <a href="#" class="service-link">
+            Learn More <span style="margin-left: 4px;">→</span>
+          </a>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🎨</div>
+          <h3 class="service-title">Graphic Design</h3>
+          <p class="service-description">
+            Creative visual solutions that capture your brand essence and communicate your message beautifully.
+          </p>
+          
+          <div class="service-list">
+            <div class="service-list-item">
+              <div class="service-list-bullet"></div>
+              <span>Brand Identity</span>
+            </div>
+            <div class="service-list-item">
+              <div class="service-list-bullet"></div>
+              <span>Print Design</span>
+            </div>
+            <div class="service-list-item">
+              <div class="service-list-bullet"></div>
+              <span>UI/UX Design</span>
+            </div>
+            <div class="service-list-item">
+              <div class="service-list-bullet"></div>
+              <span>Marketing Materials</span>
+            </div>
+          </div>
+          
+          <a href="#" class="service-link">
+            Learn More <span style="margin-left: 4px;">→</span>
+          </a>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">⚙️</div>
+          <h3 class="service-title">Business Strategy</h3>
+          <p class="service-description">
+            Comprehensive business strategies to help you achieve your goals and grow your business sustainably.
+          </p>
+          
+          <div class="service-list">
+            <div class="service-list-item">
+              <div class="service-list-bullet"></div>
+              <span>Market Analysis</span>
+            </div>
+            <div class="service-list-item">
+              <div class="service-list-bullet"></div>
+              <span>Competitor Research</span>
+            </div>
+            <div class="service-list-item">
+              <div class="service-list-bullet"></div>
+              <span>Growth Planning</span>
+            </div>
+            <div class="service-list-item">
+              <div class="service-list-bullet"></div>
+              <span>Brand Positioning</span>
+            </div>
+          </div>
+          
+          <a href="#" class="service-link">
+            Learn More <span style="margin-left: 4px;">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Portfolio Section -->
+  <section class="portfolio">
+    <div class="container">
+      <h2 class="section-title">My Portfolio</h2>
+      <p class="section-subtitle">
+        Check out some of my recent projects and see how I've helped businesses achieve their goals.
+      </p>
+      
+      <div class="portfolio-filters">
+        <button class="portfolio-filter-btn active" data-filter="all">All</button>
+        <button class="portfolio-filter-btn" data-filter="digital-marketing">Digital Marketing</button>
+        <button class="portfolio-filter-btn" data-filter="graphic-design">Graphic Design</button>
+      </div>
+      
+      <div class="portfolio-grid">
+        <div class="portfolio-item" data-category="graphic-design">
+          <div class="portfolio-image">
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Brand Identity Design">
+          </div>
+          <div class="portfolio-content">
+            <h3 class="portfolio-title">Brand Identity Design</h3>
+            <span class="portfolio-category">Graphic Design</span>
+          </div>
+        </div>
+        
+        <div class="portfolio-item" data-category="digital-marketing">
+          <div class="portfolio-image">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="SEO Campaign">
+          </div>
+          <div class="portfolio-content">
+            <h3 class="portfolio-title">SEO Campaign</h3>
+            <span class="portfolio-category">Digital Marketing</span>
+          </div>
+        </div>
+        
+        <div class="portfolio-item" data-category="graphic-design">
+          <div class="portfolio-image">
+            <img src="https://images.unsplash.com/photo-1586717799252-bd134ad00e26?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Marketing Materials">
+          </div>
+          <div class="portfolio-content">
+            <h3 class="portfolio-title">Marketing Materials</h3>
+            <span class="portfolio-category">Graphic Design</span>
+          </div>
+        </div>
+        
+        <div class="portfolio-item" data-category="digital-marketing">
+          <div class="portfolio-image">
+            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Social Media Strategy">
+          </div>
+          <div class="portfolio-content">
+            <h3 class="portfolio-title">Social Media Strategy</h3>
+            <span class="portfolio-category">Digital Marketing</span>
+          </div>
+        </div>
+        
+        <div class="portfolio-item" data-category="graphic-design">
+          <div class="portfolio-image">
+            <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="UI/UX Website Design">
+          </div>
+          <div class="portfolio-content">
+            <h3 class="portfolio-title">UI/UX Website Design</h3>
+            <span class="portfolio-category">Graphic Design</span>
+          </div>
+        </div>
+        
+        <div class="portfolio-item" data-category="digital-marketing">
+          <div class="portfolio-image">
+            <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Content Marketing">
+          </div>
+          <div class="portfolio-content">
+            <h3 class="portfolio-title">Content Marketing</h3>
+            <span class="portfolio-category">Digital Marketing</span>
+          </div>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 48px;">
+        <a href="#" class="btn-primary" style="display: inline-flex; align-items: center;">
+          View All Projects <span style="margin-left: 8px;">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <h2 class="section-title">Client Testimonials</h2>
+      <p class="section-subtitle">
+        Don't just take my word for it. Here's what my clients have to say about working with me.
+      </p>
+      
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80" alt="Sarah Johnson">
+              </div>
+              <div>
+                <h4 class="testimonial-name">Sarah Johnson</h4>
+                <p class="testimonial-position">Marketing Director, TechStart Inc.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-stars">
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+          </div>
+          
+          <p class="testimonial-text">"Working with Md. Abdus Salam was a game-changer for our company. His digital marketing strategy increased our online visibility significantly, resulting in a 40% boost in qualified leads."</p>
+          
+          <div class="testimonial-decoration">"</div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80" alt="Michael Chen">
+              </div>
+              <div>
+                <h4 class="testimonial-name">Michael Chen</h4>
+                <p class="testimonial-position">CEO, Innovate Design</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-stars">
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+          </div>
+          
+          <p class="testimonial-text">"Salam created an outstanding brand identity for our startup. His attention to detail and understanding of our vision was impressive. The deliverables exceeded our expectations."</p>
+          
+          <div class="testimonial-decoration">"</div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80" alt="Emily Roberts">
+              </div>
+              <div>
+                <h4 class="testimonial-name">Emily Roberts</h4>
+                <p class="testimonial-position">Small Business Owner, Bloom Boutique</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-stars">
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+          </div>
+          
+          <p class="testimonial-text">"As a small business owner, I needed affordable yet professional marketing materials. Salam delivered beautiful designs and a social media strategy that helped my boutique thrive online."</p>
+          
+          <div class="testimonial-decoration">"</div>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 48px;">
+        <a href="#" class="btn-primary" style="display: inline-flex; align-items: center;">
+          View All Testimonials <span style="margin-left: 8px;">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section class="contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">
+        Have a project in mind? Let's discuss how I can help you achieve your goals.
+      </p>
+      
+      <!-- Contact form would go here - simplified for Blogger -->
+      <div style="max-width: 600px; margin: 0 auto; background: white; padding: 32px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+        <p style="text-align: center; margin-bottom: 24px;">
+          For inquiries, please email me at <a href="mailto:contact@salamcreative.com" style="color: #ffc107; font-weight: 500;">contact@salamcreative.com</a>
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div style="text-align: center; padding-bottom: 20px;">
+        <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">
+          <span style="color: #ffc107;">Salam</span> Creative
+        </h3>
+        <p style="color: #ccc; margin-bottom: 24px;">Digital Marketing & Graphic Design Expert</p>
+        
+        <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 32px;">
+          <a href="#" style="color: #fff; font-size: 24px;">🔗</a>
+          <a href="#" style="color: #fff; font-size: 24px;">🔗</a>
+          <a href="#" style="color: #fff; font-size: 24px;">🔗</a>
+          <a href="#" style="color: #fff; font-size: 24px;">🔗</a>
+        </div>
+      </div>
+      
+      <div style="text-align: center; border-top: 1px solid #555; padding-top: 20px;">
+        <p style="color: #ccc; font-size: 14px;">
+          © 2025 Md. Abdus Salam. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Simple JavaScript for mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const navbarToggle = document.getElementById('navbar-toggle');
+      const navbarMenu = document.getElementById('navbar-menu');
+      const navbar = document.getElementById('navbar');
+      
+      navbarToggle.addEventListener('click', function() {
+        navbarMenu.classList.toggle('active');
+      });
+      
+      // Portfolio filtering
+      const filterButtons = document.querySelectorAll('.portfolio-filter-btn');
+      const portfolioItems = document.querySelectorAll('.portfolio-item');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Remove active class from all buttons
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          button.classList.add('active');
+          
+          const filterValue = button.getAttribute('data-filter');
+          
+          portfolioItems.forEach(item => {
+            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+      
+      // Navbar scroll effect
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 20) {
+          navbar.style.padding = '10px 0';
+          navbar.style.backgroundColor = '#fff';
+          navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+        } else {
+          navbar.style.padding = '20px 0';
+          navbar.style.backgroundColor = 'transparent';
+          navbar.style.boxShadow = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
