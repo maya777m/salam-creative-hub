@@ -3,65 +3,68 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { ArrowRight, Calendar, Globe, Brush, Mail, MapPin, Phone, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 const About: React.FC = () => {
-  const experiences = [
-    {
-      id: 1,
-      year: '2020 - Present',
-      position: 'Freelance Digital Marketer & Graphic Designer',
-      company: 'Self-Employed',
-      description: 'Working with clients globally to deliver high-quality digital marketing and graphic design solutions.'
-    },
-    {
-      id: 2,
-      year: '2018 - 2020',
-      position: 'Senior Digital Marketing Specialist',
-      company: 'MediaTech Solutions',
-      description: 'Led digital marketing campaigns for major clients, increasing their online visibility and conversion rates.'
-    },
-    {
-      id: 3,
-      year: '2016 - 2018',
-      position: 'Graphic Designer',
-      company: 'Creative Minds Agency',
-      description: 'Created visual concepts for various brands, including logos, marketing materials, and social media assets.'
-    }
-  ];
-
-  const educations = [
-    {
-      id: 1,
-      year: '2014 - 2016',
-      degree: 'Master in Digital Marketing',
-      institution: 'University of Creative Arts',
-      description: 'Specialized in SEO, SEM, and Social Media Marketing strategies.'
-    },
-    {
-      id: 2,
-      year: '2010 - 2014',
-      degree: 'Bachelor in Graphic Design',
-      institution: 'Design Institute',
-      description: 'Focused on brand identity, UI/UX design, and print media.'
-    }
-  ];
-
-  const skills = [
-    { name: 'Digital Marketing', percentage: 95 },
-    { name: 'SEO Optimization', percentage: 90 },
-    { name: 'Social Media Marketing', percentage: 95 },
-    { name: 'Content Marketing', percentage: 85 },
-    { name: 'Graphic Design', percentage: 90 },
-    { name: 'UI/UX Design', percentage: 80 },
-    { name: 'Brand Identity', percentage: 95 },
-    { name: 'Adobe Creative Suite', percentage: 90 }
-  ];
-
-  return (
-    <div className="min-h-screen">
+  const experiences = [{
+    id: 1,
+    year: '2020 - Present',
+    position: 'Freelance Digital Marketer & Graphic Designer',
+    company: 'Self-Employed',
+    description: 'Working with clients globally to deliver high-quality digital marketing and graphic design solutions.'
+  }, {
+    id: 2,
+    year: '2018 - 2020',
+    position: 'Senior Digital Marketing Specialist',
+    company: 'MediaTech Solutions',
+    description: 'Led digital marketing campaigns for major clients, increasing their online visibility and conversion rates.'
+  }, {
+    id: 3,
+    year: '2016 - 2018',
+    position: 'Graphic Designer',
+    company: 'Creative Minds Agency',
+    description: 'Created visual concepts for various brands, including logos, marketing materials, and social media assets.'
+  }];
+  const educations = [{
+    id: 1,
+    year: '2014 - 2016',
+    degree: 'Master in Digital Marketing',
+    institution: 'University of Creative Arts',
+    description: 'Specialized in SEO, SEM, and Social Media Marketing strategies.'
+  }, {
+    id: 2,
+    year: '2010 - 2014',
+    degree: 'Bachelor in Graphic Design',
+    institution: 'Design Institute',
+    description: 'Focused on brand identity, UI/UX design, and print media.'
+  }];
+  const skills = [{
+    name: 'Digital Marketing',
+    percentage: 95
+  }, {
+    name: 'SEO Optimization',
+    percentage: 90
+  }, {
+    name: 'Social Media Marketing',
+    percentage: 95
+  }, {
+    name: 'Content Marketing',
+    percentage: 85
+  }, {
+    name: 'Graphic Design',
+    percentage: 90
+  }, {
+    name: 'UI/UX Design',
+    percentage: 80
+  }, {
+    name: 'Brand Identity',
+    percentage: 95
+  }, {
+    name: 'Adobe Creative Suite',
+    percentage: 90
+  }];
+  return <div className="min-h-screen">
       <Navbar />
 
-      <section className="pt-28 pb-16 md:pt-32 md:pb-20 bg-gradient-to-b from-amber-50 to-white">
+      <section className="pt-28 pb-16 md:pt-32 md:pb-20 bg-gradient-to-b from-amber-40 to-white py-[172px]">
         <div className="container">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">About Me</h1>
@@ -150,20 +153,17 @@ const About: React.FC = () => {
         <div className="container">
           <h2 className="section-title">My Skills</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            {skills.map((skill) => (
-              <div key={skill.name} className="mb-5">
+            {skills.map(skill => <div key={skill.name} className="mb-5">
                 <div className="flex justify-between items-center mb-2">
                   <h3 className="font-medium">{skill.name}</h3>
                   <span className="text-amber-500 font-semibold">{skill.percentage}%</span>
                 </div>
                 <div className="w-full bg-gray-200 h-2.5 rounded-full">
-                  <div 
-                    className="bg-amber-500 h-2.5 rounded-full"
-                    style={{ width: `${skill.percentage}%` }}
-                  ></div>
+                  <div className="bg-amber-500 h-2.5 rounded-full" style={{
+                width: `${skill.percentage}%`
+              }}></div>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -173,8 +173,7 @@ const About: React.FC = () => {
           <h2 className="section-title">Experience</h2>
           
           <div className="space-y-8 mt-12">
-            {experiences.map((exp) => (
-              <div key={exp.id} className="card border-l-4 border-amber-500 hover:shadow-xl">
+            {experiences.map(exp => <div key={exp.id} className="card border-l-4 border-amber-500 hover:shadow-xl">
                 <div className="flex flex-col md:flex-row md:items-center">
                   <div className="md:w-1/4 mb-4 md:mb-0">
                     <span className="inline-block px-4 py-2 bg-amber-100 text-amber-800 rounded-full text-sm font-medium">
@@ -187,8 +186,7 @@ const About: React.FC = () => {
                     <p className="text-gray-600">{exp.description}</p>
                   </div>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -198,8 +196,7 @@ const About: React.FC = () => {
           <h2 className="section-title">Education</h2>
           
           <div className="space-y-8 mt-12">
-            {educations.map((edu) => (
-              <div key={edu.id} className="card border-l-4 border-amber-500 hover:shadow-xl">
+            {educations.map(edu => <div key={edu.id} className="card border-l-4 border-amber-500 hover:shadow-xl">
                 <div className="flex flex-col md:flex-row md:items-center">
                   <div className="md:w-1/4 mb-4 md:mb-0">
                     <span className="inline-block px-4 py-2 bg-amber-100 text-amber-800 rounded-full text-sm font-medium">
@@ -212,8 +209,7 @@ const About: React.FC = () => {
                     <p className="text-gray-600">{edu.description}</p>
                   </div>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -224,18 +220,13 @@ const About: React.FC = () => {
           <p className="text-xl mb-10 max-w-2xl mx-auto">
             Let's work together to create something amazing for your business!
           </p>
-          <Link
-            to="/contact"
-            className="inline-block bg-white text-amber-500 hover:bg-gray-100 transition-colors px-8 py-3 rounded-md font-medium"
-          >
+          <Link to="/contact" className="inline-block bg-white text-amber-500 hover:bg-gray-100 transition-colors px-8 py-3 rounded-md font-medium">
             Get Started
           </Link>
         </div>
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default About;
