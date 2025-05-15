@@ -27,6 +27,19 @@ const Index: React.FC = () => {
         }
       });
     });
+    
+    // Check if page was loaded with hash and scroll to that section
+    if (window.location.hash) {
+      const targetId = window.location.hash.substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        setTimeout(() => {
+          targetElement.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }, 500); // Delay to ensure page is fully loaded
+      }
+    }
   }, []);
 
   return (
@@ -42,6 +55,17 @@ const Index: React.FC = () => {
         <meta name="twitter:title" content="Md. Abdus Salam - Digital Marketing & Graphic Design Expert" />
         <meta name="twitter:description" content="Professional digital marketing and graphic design services to help your business grow online." />
         <link rel="canonical" href="https://salamcreative.com/" />
+        
+        {/* Additional SEO meta tags */}
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Md. Abdus Salam" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#ffc107" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:site_name" content="Salam Creative" />
+        <meta name="twitter:site" content="@salamcreative" />
+        <meta name="twitter:creator" content="@salamcreative" />
       </Helmet>
       <Navbar />
       <Hero />
