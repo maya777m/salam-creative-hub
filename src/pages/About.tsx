@@ -1,8 +1,7 @@
-
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { ArrowRight, Calendar, Globe, Image, Mail, MapPin, Phone } from 'lucide-react';
+import { ArrowRight, Calendar, Globe, Brush, Mail, MapPin, Phone, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const About: React.FC = () => {
@@ -79,11 +78,9 @@ const About: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
               <div className="relative">
-                <img
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80"
-                  alt="Md. Abdus Salam"
-                  className="rounded-lg shadow-xl w-full h-auto"
-                />
+                <div className="rounded-lg shadow-xl w-full h-auto bg-gradient-to-br from-amber-100 to-amber-50 p-20 flex items-center justify-center">
+                  <Award size={180} className="text-amber-500" />
+                </div>
                 <div className="absolute -bottom-5 -right-5 bg-amber-500 p-6 rounded-lg shadow-lg">
                   <h3 className="text-white font-bold text-xl">5+ Years</h3>
                   <p className="text-white text-sm">Professional Experience</p>
