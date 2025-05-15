@@ -55,7 +55,7 @@ const AboutSnippet: React.FC = () => {
           {/* About Image */}
           <div className="md:w-1/2 animate-slide-up">
             <div className="relative">
-              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Md. Abdus Salam Working" className="rounded-lg shadow-xl w-medium h-mediumobject-cover object-scale-down" />
+              <img alt="Md. Abdus Salam Working" className="rounded-lg shadow-xl w-medium h-mediumobject-cover object-scale-down" src="/lovable-uploads/038d6a55-fa1e-450b-9aef-5669519ee308.png" />
               <div className="absolute -bottom-5 -left-5 bg-white p-4 rounded-lg shadow-lg py-[69px] mx-[10px] my-[79px] px-[38px]">
                 <h3 className="text-amber-500 font-bold text-lg">Passionate</h3>
                 <p className="text-gray-700 text-sm">About Design & Marketing</p>
