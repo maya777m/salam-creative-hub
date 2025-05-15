@@ -1,13 +1,9 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
-
-  return (
-    <footer className="bg-darkgray text-white">
-      <div className="container py-12 px-4">
+  return <footer className="bg-darkgray text-white">
+      <div className="container py-[12px] px-[18px]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <Link to="/" className="font-bold text-xl md:text-2xl flex items-center mb-4">
@@ -18,50 +14,26 @@ const Footer: React.FC = () => {
               I help businesses grow through creative digital marketing and graphic design solutions.
             </p>
             <div className="flex space-x-4">
-              <a 
-                href="https://twitter.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="bg-gray-800 p-2 rounded-full hover:bg-amber-500 transition-colors"
-                aria-label="Twitter"
-              >
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:bg-amber-500 transition-colors" aria-label="Twitter">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
                 </svg>
               </a>
-              <a 
-                href="https://linkedin.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="bg-gray-800 p-2 rounded-full hover:bg-amber-500 transition-colors"
-                aria-label="LinkedIn"
-              >
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:bg-amber-500 transition-colors" aria-label="LinkedIn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                   <rect x="2" y="9" width="4" height="12"></rect>
                   <circle cx="4" cy="4" r="2"></circle>
                 </svg>
               </a>
-              <a 
-                href="https://instagram.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="bg-gray-800 p-2 rounded-full hover:bg-amber-500 transition-colors"
-                aria-label="Instagram"
-              >
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:bg-amber-500 transition-colors" aria-label="Instagram">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                 </svg>
               </a>
-              <a 
-                href="https://dribbble.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="bg-gray-800 p-2 rounded-full hover:bg-amber-500 transition-colors"
-                aria-label="Dribbble"
-              >
+              <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:bg-amber-500 transition-colors" aria-label="Dribbble">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10"></circle>
                   <path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"></path>
@@ -190,8 +162,6 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
