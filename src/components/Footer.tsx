@@ -147,7 +147,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
       
-      <div className="border-t border-gray-800 py-6">
+      <div className="border-t border-gray-800 py-[10px]">
         <div className="container px-4 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
             &copy; {currentYear} Md. Abdus Salam. All rights reserved.
