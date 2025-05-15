@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Award, Briefcase, Star } from 'lucide-react';
 const AboutSnippet: React.FC = () => {
-  return <section className="py-16 bg-white md:py-[2px]">
+  return <section className="py-16 md:py-[27px] bg-white">
       <div className="container mx-auto px-4">
         <div className="flex flex-col-reverse md:flex-row md:items-center md:gap-12">
           {/* About Text Content */}
