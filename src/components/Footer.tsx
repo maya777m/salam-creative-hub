@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
               <span className="text-amber-500">Salam</span>
               <span className="ml-1 text-white">Creative</span>
             </Link>
-            <p className="text-gray-300 mb-6">
+            <p className="text-gray-300 mb-6 text-left">
               I help businesses grow through creative digital marketing and graphic design solutions.
             </p>
             <div className="flex space-x-4">
@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
+            <h3 className="font-semibold text-lg mb-4 text-center">Quick Links</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/" className="text-gray-300 hover:text-amber-500 transition-colors">
