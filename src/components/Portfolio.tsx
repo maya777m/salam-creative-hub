@@ -6,13 +6,6 @@ import { Link } from 'react-router-dom';
 const Portfolio: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('all');
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const portfolioItems = [
     {
       id: 1,
@@ -75,10 +68,9 @@ const Portfolio: React.FC = () => {
     : portfolioItems.filter(item => item.category === activeFilter);
 
   return (
-    <section id="portfolio" className="py-16 md:py-20 relative overflow-hidden">
+    <section id="portfolio" className="py-16 md:py-20 bg-gradient-to-br from-gray-50 via-white to-amber-50 relative overflow-hidden">
       {/* Texture Background */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-100 via-white to-amber-50"></div>
+      <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffc107' fill-opacity='0.1'%3E%3Ccircle cx='7' cy='7' r='5'/%3E%3Ccircle cx='53' cy='53' r='5'/%3E%3Ccircle cx='53' cy='7' r='5'/%3E%3Ccircle cx='7' cy='53' r='5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           backgroundSize: '60px 60px'
@@ -162,12 +154,12 @@ const Portfolio: React.FC = () => {
         </div>
 
         <div className="text-center mt-12 animate-fade-in">
-          <button 
-            onClick={() => scrollToSection('contact')}
+          <Link 
+            to="/portfolio"
             className="bg-amber-500 hover:bg-amber-600 text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 inline-flex items-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105"
           >
-            Start Your Project <ArrowRight size={18} className="ml-2" />
-          </button>
+            View All Projects <ArrowRight size={18} className="ml-2" />
+          </Link>
         </div>
       </div>
     </section>
