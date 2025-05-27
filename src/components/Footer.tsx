@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   return <footer className="bg-darkgray text-white py-[20px]">
-      <div className="container py-[12px] px-[18px]">
+      <div className="container px-[54px] py-[45px]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <Link to="/" className="font-bold text-xl md:text-2xl flex items-center mb-4">
@@ -114,8 +114,8 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          <div>
-            <h3 className="font-semibold text-lg mb-4">Contact</h3>
+          <div className="px-0 py-0 my-0 mx-0">
+            <h3 className="font-semibold text-lg mb-4 text-left">Contact</h3>
             <ul className="space-y-3">
               <li className="flex items-start">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
