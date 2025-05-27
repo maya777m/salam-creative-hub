@@ -1,58 +1,65 @@
+
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Globe, Brush, Award, TrendingUp, Target, ChevronDown } from 'lucide-react';
+import { ArrowRight, TrendingUp, Target, BarChart3, ChevronDown } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import * as THREE from 'three';
+
 const Hero: React.FC = () => {
-  const heroSlides = [{
-    title: "Transform Your <span class='text-amber-500'>Digital Presence</span>",
-    subtitle: "Strategic Marketing Solutions",
-    description: "\"Success in marketing requires a blend of creativity, analytical thinking, and relentless innovation. Let's build your brand together.\"",
-    icon: <TrendingUp size={64} className="text-amber-500" />
-  }, {
-    title: "Creative <span class='text-amber-500'>Design Excellence</span>",
-    subtitle: "Visual Communication That Works",
-    description: "\"Great design is not just about aesthetics; it's about solving problems and creating experiences that resonate with your audience.\"",
-    icon: <Brush size={64} className="text-amber-500" />
-  }, {
-    title: "Achieve <span class='text-amber-500'>Measurable Results</span>",
-    subtitle: "Data-Driven Marketing Approach",
-    description: "\"In the world of digital marketing, what gets measured gets improved. Your success is defined by results, not just activities.\"",
-    icon: <Target size={64} className="text-amber-500" />
-  }];
+  const heroSlides = [
+    {
+      title: "Transform Your <span class='text-amber-500'>Digital Presence</span>",
+      subtitle: "Strategic Marketing Solutions",
+      description: "\"Success in marketing requires a blend of creativity, analytical thinking, and relentless innovation. Let's build your brand together.\"",
+      icon: <TrendingUp size={64} className="text-amber-500" />
+    },
+    {
+      title: "Creative <span class='text-amber-500'>Design Excellence</span>",
+      subtitle: "Visual Communication That Works",
+      description: "\"Great design is not just about aesthetics; it's about solving problems and creating experiences that resonate with your audience.\"",
+      icon: <BarChart3 size={64} className="text-amber-500" />
+    },
+    {
+      title: "Achieve <span class='text-amber-500'>Measurable Results</span>",
+      subtitle: "Data-Driven Marketing Approach",
+      description: "\"In the world of digital marketing, what gets measured gets improved. Your success is defined by results, not just activities.\"",
+      icon: <Target size={64} className="text-amber-500" />
+    }
+  ];
+
   const canvasRef = useRef<HTMLDivElement>(null);
   const [scene, setScene] = useState<THREE.Scene | null>(null);
   const [camera, setCamera] = useState<THREE.PerspectiveCamera | null>(null);
   const [renderer, setRenderer] = useState<THREE.WebGLRenderer | null>(null);
   const [objects, setObjects] = useState<THREE.Mesh[]>([]);
+
   useEffect(() => {
     if (!canvasRef.current) return;
 
     // Initialize Three.js scene
     const newScene = new THREE.Scene();
     const newCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const newRenderer = new THREE.WebGLRenderer({
-      alpha: true,
-      antialias: true
-    });
+    const newRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    
     newRenderer.setSize(window.innerWidth, window.innerHeight);
     newRenderer.setPixelRatio(window.devicePixelRatio);
     canvasRef.current.appendChild(newRenderer.domElement);
 
     // Create geometric objects for 3D motion
     const newObjects: THREE.Mesh[] = [];
-
-    // Create marketing-themed objects (charts, analytics shapes)
-    const geometries = [new THREE.IcosahedronGeometry(1, 0),
-    // 3D pentagon shapes
-    new THREE.OctahedronGeometry(0.8, 0), new THREE.TetrahedronGeometry(0.7, 0), new THREE.SphereGeometry(0.6, 8, 8), new THREE.ConeGeometry(0.5, 1, 8)];
+    const geometries = [
+      new THREE.IcosahedronGeometry(1, 0),
+      new THREE.OctahedronGeometry(0.8, 0),
+      new THREE.TetrahedronGeometry(0.7, 0),
+      new THREE.SphereGeometry(0.6, 8, 8),
+      new THREE.ConeGeometry(0.5, 1, 8)
+    ];
 
     // Create 15 random objects
     for (let i = 0; i < 15; i++) {
       const geometryIndex = Math.floor(Math.random() * geometries.length);
       const material = new THREE.MeshBasicMaterial({
         color: new THREE.Color(`hsl(${Math.random() * 45 + 35}, 100%, 75%)`),
-        // Amber shades
         wireframe: true
       });
       const object = new THREE.Mesh(geometries[geometryIndex], material);
@@ -65,6 +72,7 @@ const Hero: React.FC = () => {
       // Random rotation
       object.rotation.x = Math.random() * Math.PI;
       object.rotation.y = Math.random() * Math.PI;
+      
       newScene.add(object);
       newObjects.push(object);
     }
@@ -88,6 +96,7 @@ const Hero: React.FC = () => {
         obj.rotation.y += 0.002;
         obj.position.z += Math.sin(Date.now() * 0.001) * 0.01;
       });
+
       if (newScene && newCamera) {
         newRenderer.render(newScene, newCamera);
       }
@@ -103,6 +112,7 @@ const Hero: React.FC = () => {
       newCamera.updateProjectionMatrix();
       newRenderer.setSize(window.innerWidth, window.innerHeight);
     };
+
     window.addEventListener('resize', handleResize);
 
     // Cleanup
@@ -117,19 +127,23 @@ const Hero: React.FC = () => {
       });
     };
   }, []);
-  return <section className="relative pt-28 pb-12 md:pt-32 md:pb-16 bg-gradient-to-b from-amber-50 to-white overflow-hidden">
+
+  return (
+    <section className="relative pt-28 pb-12 md:pt-32 md:pb-16 bg-gradient-to-b from-amber-50 to-white overflow-hidden">
       {/* 3D Background Animation */}
       <div ref={canvasRef} className="absolute inset-0 z-0" />
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <Carousel className="w-full">
           <CarouselContent>
-            {heroSlides.map((slide, index) => <CarouselItem key={index} className="md:basis-full">
+            {heroSlides.map((slide, index) => (
+              <CarouselItem key={index} className="md:basis-full">
                 <div className="flex flex-col md:flex-row items-center justify-between">
                   <div className="md:w-3/5 mb-10 md:mb-0 animate-fade-in">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-darkgray mb-4" dangerouslySetInnerHTML={{
-                  __html: slide.title
-                }} />
+                    <h1 
+                      className="text-4xl md:text-5xl lg:text-6xl font-bold text-darkgray mb-4" 
+                      dangerouslySetInnerHTML={{ __html: slide.title }}
+                    />
                     <h2 className="text-2xl md:text-3xl font-medium text-gray-700 mb-6">
                       {slide.subtitle}
                     </h2>
@@ -161,7 +175,8 @@ const Hero: React.FC = () => {
                     </div>
                   </div>
                 </div>
-              </CarouselItem>)}
+              </CarouselItem>
+            ))}
           </CarouselContent>
           <div className="hidden md:block">
             <CarouselPrevious className="left-2" />
@@ -171,12 +186,35 @@ const Hero: React.FC = () => {
 
         {/* Quick Navigation Links */}
         <div className="w-full flex justify-center mt-12">
-          
+          <div className="flex flex-wrap gap-4 justify-center animate-fade-in">
+            <Link to="/about" className="px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full text-gray-700 hover:text-amber-500 hover:bg-white transition-all duration-300 shadow-md hover:shadow-lg">
+              About Me
+            </Link>
+            <Link to="/services" className="px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full text-gray-700 hover:text-amber-500 hover:bg-white transition-all duration-300 shadow-md hover:shadow-lg">
+              Services
+            </Link>
+            <Link to="/portfolio" className="px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full text-gray-700 hover:text-amber-500 hover:bg-white transition-all duration-300 shadow-md hover:shadow-lg">
+              Portfolio
+            </Link>
+            <Link to="/testimonials" className="px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full text-gray-700 hover:text-amber-500 hover:bg-white transition-all duration-300 shadow-md hover:shadow-lg">
+              Testimonials
+            </Link>
+            <Link to="/contact" className="px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full text-gray-700 hover:text-amber-500 hover:bg-white transition-all duration-300 shadow-md hover:shadow-lg">
+              Contact
+            </Link>
+          </div>
         </div>
 
         {/* Scroll Indicator */}
-        
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="flex flex-col items-center">
+            <span className="text-gray-500 text-sm mb-2">Scroll Down</span>
+            <ChevronDown size={24} className="text-amber-500" />
+          </div>
+        </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;
