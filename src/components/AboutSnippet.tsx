@@ -11,7 +11,7 @@ const AboutSnippet: React.FC = () => {
       }}></div>
       </div>
 
-      <div className="container mx-auto px-4 max-w-7xl relative z-10">
+      <div className="container max-w-7xl relative z-10 py-0 my-0 mx-0 px-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="animate-fade-in order-2 lg:order-1">
@@ -93,14 +93,14 @@ const AboutSnippet: React.FC = () => {
           </div>
           
           {/* Right Image */}
-          <div className="animate-fade-in order-1 lg:order-2">
+          <div className="animate-fade-in order-1 lg:order-2 py-0 my-0 mx-0 px-0 rounded-none">
             <div className="relative max-w-md mx-auto">
               {/* Background Shape */}
               <div className="absolute inset-0 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl transform rotate-6 shadow-2xl"></div>
               
               {/* Main Image Container */}
               <div className="relative bg-white p-6 rounded-2xl shadow-xl transform hover:scale-105 transition-transform duration-500">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Md. Abdus Salam - Digital Marketing Expert" className="w-full h-80 object-cover rounded-lg shadow-md" />
+                <img alt="Md. Abdus Salam - Digital Marketing Expert" src="/lovable-uploads/b8092708-7063-4930-8c58-14d8c8c95b13.jpg" className="w-full h-80 rounded-lg shadow-md object-fill" />
                 
                 {/* Stats Badge */}
                 <div className="absolute -bottom-4 -right-4 bg-amber-500 p-4 rounded-xl shadow-lg">

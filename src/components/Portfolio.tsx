@@ -98,7 +98,7 @@ const Portfolio: React.FC = () => {
                 <h3 className="text-xl font-semibold mb-3 group-hover:text-amber-500 transition-colors leading-tight">
                   {item.title}
                 </h3>
-                <p className="text-gray-600 mb-4 leading-relaxed text-left">{item.description}</p>
+                <p className="text-gray-600 mb-4 leading-relaxed text-center">{item.description}</p>
                 <Link to={`/portfolio/${item.slug}`} className="inline-flex items-center text-amber-500 font-medium hover:text-amber-600 transition-colors group-hover:translate-x-1 transform duration-300">
                   View Project Details <ExternalLink size={16} className="ml-1" />
                 </Link>
