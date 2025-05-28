@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ArrowDown, ChevronLeft, ChevronRight, Play, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -10,34 +9,34 @@ const Hero: React.FC = () => {
   const slides = [
     {
       id: 1,
-      title: "Transform Your Social Media Presence",
-      subtitle: "Expert Social Media Marketing Solutions",
-      description: "Boost your brand's online visibility with strategic social media campaigns that drive engagement, increase followers, and convert audiences into loyal customers.",
+      title: "Grow Your Social Media Empire",
+      subtitle: "Expert Social Media Marketing & Content Creation",
+      description: "Transform your brand into a social media powerhouse with proven strategies that generate real followers, engagement, and sales. Specializing in Instagram, Facebook, YouTube, and LinkedIn growth.",
       backgroundImage: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
       primaryAction: {
-        text: "Start Your Campaign",
+        text: "Start Growing Today",
         link: "#contact"
       }
     },
     {
       id: 2,
       title: "Creative Design That Converts",
-      subtitle: "Professional Graphic Design & Brand Identity",
-      description: "Stand out from the competition with stunning visual content, logos, and brand materials that capture your essence and resonate with your target audience.",
+      subtitle: "Professional Brand Identity & Visual Content",
+      description: "Stand out with stunning visual content, professional logos, and complete brand packages that capture attention and drive conversions across all your marketing channels.",
       backgroundImage: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
       primaryAction: {
-        text: "View My Designs",
+        text: "See My Design Work",
         link: "#portfolio"
       }
     },
     {
       id: 3,
-      title: "Data-Driven Marketing Results",
-      subtitle: "Analytics & Performance Optimization",
-      description: "Maximize your ROI with proven marketing strategies backed by data analysis, performance tracking, and continuous optimization for better results.",
+      title: "Results That Speak Volumes",
+      subtitle: "Data-Driven Marketing with Proven ROI",
+      description: "Join 50+ successful businesses that have achieved 300%+ growth with my strategic approach to social media marketing and creative design solutions.",
       backgroundImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
       primaryAction: {
-        text: "See Results",
+        text: "View Success Stories",
         link: "#testimonials"
       }
     }

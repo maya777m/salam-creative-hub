@@ -5,10 +5,10 @@ import { ArrowRight, Award, Mail, Phone, MapPin, Calendar, Instagram, Linkedin, 
 
 const AboutSnippet: React.FC = () => {
   const socialLinks = [
-    { icon: <Facebook size={20} />, name: 'Facebook', color: 'text-blue-600' },
-    { icon: <Instagram size={20} />, name: 'Instagram', color: 'text-pink-600' },
-    { icon: <Linkedin size={20} />, name: 'LinkedIn', color: 'text-blue-700' },
-    { icon: <Youtube size={20} />, name: 'YouTube', color: 'text-red-600' }
+    { icon: <Facebook size={20} />, name: 'Facebook', color: 'text-blue-600', url: 'https://facebook.com/abdusmango' },
+    { icon: <Instagram size={20} />, name: 'Instagram', color: 'text-pink-600', url: 'https://instagram.com/abdusmango' },
+    { icon: <Linkedin size={20} />, name: 'LinkedIn', color: 'text-blue-700', url: 'https://linkedin.com/in/abdusmango' },
+    { icon: <Youtube size={20} />, name: 'YouTube', color: 'text-red-600', url: 'https://youtube.com/@abdusmango' }
   ];
 
   return (
@@ -33,8 +33,8 @@ const AboutSnippet: React.FC = () => {
                 <Award size={32} className="text-white" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-gray-800">Social Media Expert</h3>
-                <p className="text-amber-600 text-sm font-medium">5+ Years Experience</p>
+                <h3 className="text-xl font-bold text-gray-800">Social Media Growth Expert</h3>
+                <p className="text-amber-600 text-sm font-medium">5+ Years Proven Results</p>
               </div>
             </div>
 
@@ -44,22 +44,22 @@ const AboutSnippet: React.FC = () => {
             </h2>
             
             <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-              Passionate about transforming businesses through strategic social media marketing and creative design. I help brands connect with their audience and achieve measurable growth.
+              I specialize in transforming businesses through strategic social media marketing that generates real results. From startups to established brands, I help create viral content and build engaged communities.
             </p>
             
             <p className="text-gray-600 mb-10 leading-relaxed">
-              Specializing in Instagram, Facebook, YouTube, and LinkedIn marketing with a proven track record of increasing engagement and driving conversions.
+              With expertise in Instagram growth, Facebook advertising, YouTube optimization, and LinkedIn marketing, I've helped 50+ businesses achieve 300%+ growth in followers and engagement.
             </p>
 
             {/* Contact Info Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
               {[
                 { icon: <Mail size={20} className="text-amber-600" />, title: 'Email', info: 'contact.mdabdussalam@gmail.com' },
-                { icon: <Phone size={20} className="text-amber-600" />, title: 'Phone', info: '+880 1234 567890' },
+                { icon: <Phone size={20} className="text-amber-600" />, title: 'Phone', info: '+880 1916 123456' },
                 { icon: <MapPin size={20} className="text-amber-600" />, title: 'Location', info: 'Dhaka, Bangladesh' },
-                { icon: <Calendar size={20} className="text-amber-600" />, title: 'Availability', info: 'Ready for Projects' }
+                { icon: <Calendar size={20} className="text-amber-600" />, title: 'Availability', info: 'Available for Projects' }
               ].map((item, index) => (
-                <div key={index} className="flex items-center p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-amber-200 group">
+                <div key={index} className="flex items-center p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-amber-200 group transform hover:-translate-y-1">
                   <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mr-4 group-hover:bg-amber-200 transition-colors duration-300">
                     {item.icon}
                   </div>
@@ -79,12 +79,17 @@ const AboutSnippet: React.FC = () => {
               >
                 View My Work <ArrowRight size={20} className="ml-2" />
               </Link>
-              <Link 
-                to="/contact" 
+              <button 
+                onClick={() => {
+                  const element = document.getElementById('contact');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
                 className="border-2 border-amber-500 text-amber-600 hover:bg-amber-500 hover:text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 flex items-center justify-center transform hover:-translate-y-1 hover:scale-105"
               >
                 Let's Connect
-              </Link>
+              </button>
             </div>
           </div>
           
@@ -94,17 +99,21 @@ const AboutSnippet: React.FC = () => {
               {/* Rotating Social Media Icons */}
               <div className="absolute inset-0 animate-spin" style={{ animationDuration: '20s' }}>
                 {socialLinks.map((social, index) => (
-                  <div
+                  <a
                     key={index}
-                    className={`absolute w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center ${social.color} hover:scale-110 transition-transform duration-300 cursor-pointer`}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`absolute w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center ${social.color} hover:scale-110 transition-transform duration-300 cursor-pointer hover:shadow-xl`}
                     style={{
                       top: `${50 + 45 * Math.cos((index * 2 * Math.PI) / socialLinks.length)}%`,
                       left: `${50 + 45 * Math.sin((index * 2 * Math.PI) / socialLinks.length)}%`,
                       transform: 'translate(-50%, -50%)'
                     }}
+                    title={social.name}
                   >
                     {social.icon}
-                  </div>
+                  </a>
                 ))}
               </div>
 
