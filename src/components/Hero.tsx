@@ -1,47 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowDown, ChevronLeft, ChevronRight, Play, Star } from 'lucide-react';
-import { Link } from 'react-router-dom';
+
+import React from 'react';
+import { ArrowDown, Play } from 'lucide-react';
 
 const Hero: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAutoPlay, setIsAutoPlay] = useState(true);
-
-  const slides = [
-    {
-      id: 1,
-      title: "Grow Your Social Media Empire",
-      subtitle: "Expert Social Media Marketing & Content Creation",
-      description: "Transform your brand into a social media powerhouse with proven strategies that generate real followers, engagement, and sales. Specializing in Instagram, Facebook, YouTube, and LinkedIn growth.",
-      backgroundImage: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-      primaryAction: {
-        text: "Start Growing Today",
-        link: "#contact"
-      }
-    },
-    {
-      id: 2,
-      title: "Creative Design That Converts",
-      subtitle: "Professional Brand Identity & Visual Content",
-      description: "Stand out with stunning visual content, professional logos, and complete brand packages that capture attention and drive conversions across all your marketing channels.",
-      backgroundImage: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-      primaryAction: {
-        text: "See My Design Work",
-        link: "#portfolio"
-      }
-    },
-    {
-      id: 3,
-      title: "Results That Speak Volumes",
-      subtitle: "Data-Driven Marketing with Proven ROI",
-      description: "Join 50+ successful businesses that have achieved 300%+ growth with my strategic approach to social media marketing and creative design solutions.",
-      backgroundImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-      primaryAction: {
-        text: "View Success Stories",
-        link: "#testimonials"
-      }
-    }
-  ];
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId.replace('#', ''));
     if (element) {
@@ -51,155 +12,97 @@ const Hero: React.FC = () => {
     }
   };
 
-  useEffect(() => {
-    if (isAutoPlay) {
-      const interval = setInterval(() => {
-        setCurrentSlide(prev => (prev + 1) % slides.length);
-      }, 6000);
-      return () => clearInterval(interval);
-    }
-  }, [isAutoPlay, slides.length]);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
-  const currentSlideData = slides[currentSlide];
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-amber-900/60 to-black/80 z-10"></div>
-        <img 
-          src={currentSlideData.backgroundImage} 
-          alt="Background" 
-          className="w-full h-full object-cover transition-all duration-1000 ease-in-out transform scale-105" 
-        />
-        
-        {/* Animated particles overlay */}
-        <div className="absolute inset-0 z-20">
-          {[...Array(8)].map((_, i) => (
-            <div
-              key={i}
-              className={`absolute w-2 h-2 bg-amber-400/30 rounded-full animate-bounce`}
-              style={{
-                top: `${20 + (i * 10)}%`,
-                left: `${15 + (i * 8)}%`,
-                animationDelay: `${i * 0.5}s`,
-                animationDuration: `${3 + (i * 0.5)}s`
-              }}
-            ></div>
-          ))}
-        </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black">
+      {/* Primary color background with subtle patterns */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-yellow-900/20 to-black"></div>
+      
+      {/* Animated geometric shapes */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-20 w-32 h-32 bg-amber-500/10 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-48 h-48 bg-yellow-500/10 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-amber-400/10 rounded-full blur-lg animate-bounce" style={{ animationDelay: '1s' }}></div>
       </div>
       
-      {/* Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 md:left-8 top-1/2 transform -translate-y-1/2 z-40 bg-black/30 hover:bg-amber-500/80 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm hover:scale-110"
-        onMouseEnter={() => setIsAutoPlay(false)}
-        onMouseLeave={() => setIsAutoPlay(true)}
-      >
-        <ChevronLeft size={24} />
-      </button>
-
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 md:right-8 top-1/2 transform -translate-y-1/2 z-40 bg-black/30 hover:bg-amber-500/80 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm hover:scale-110"
-        onMouseEnter={() => setIsAutoPlay(false)}
-        onMouseLeave={() => setIsAutoPlay(true)}
-      >
-        <ChevronRight size={24} />
-      </button>
-      
-      <div className="container mx-auto px-4 md:px-6 relative z-30 py-20">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Slide Navigation Dots */}
-          <div className="flex justify-center mb-8">
-            <div className="flex space-x-3">
-              {slides.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-500 ${
-                    currentSlide === index 
-                      ? 'bg-amber-400 scale-125 shadow-lg shadow-amber-400/50' 
-                      : 'bg-white/40 hover:bg-white/70'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Main Content */}
-          <div className="animate-fade-in">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-              {currentSlideData.title.split(' ').slice(0, 3).join(' ')}{' '}
-              <span className="text-amber-400 relative inline-block">
-                {currentSlideData.title.split(' ').slice(3).join(' ')}
-                <div className="absolute -bottom-2 left-0 w-full h-1 bg-amber-400/60 rounded-full animate-pulse"></div>
+      <div className="container mx-auto px-4 md:px-6 relative z-30 py-32 text-center">
+        <div className="max-w-5xl mx-auto">
+          {/* Main Content with 3D effects */}
+          <div className="animate-fade-in space-y-8">
+            {/* Bold two-line title */}
+            <h1 
+              className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 leading-tight"
+              style={{ 
+                textShadow: '4px 4px 8px rgba(0,0,0,0.8), 0 0 20px rgba(255,193,7,0.3)',
+                filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.5))'
+              }}
+            >
+              <span className="block transform hover:scale-105 transition-transform duration-500">
+                Grow Your Social Media
+              </span>
+              <span className="block text-amber-400 relative transform hover:scale-105 transition-transform duration-500">
+                Empire Today
+                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-2 bg-gradient-to-r from-transparent via-amber-400 to-transparent rounded-full animate-pulse"></div>
               </span>
             </h1>
             
-            <h2 className="text-xl md:text-3xl lg:text-4xl font-medium text-amber-100 mb-8">
-              {currentSlideData.subtitle}
+            {/* Subtitle */}
+            <h2 
+              className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium text-amber-100 mb-8 transform hover:scale-105 transition-all duration-500"
+              style={{ 
+                textShadow: '2px 2px 4px rgba(0,0,0,0.6)',
+                filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))'
+              }}
+            >
+              Expert Social Media Marketing & Creative Design Solutions
             </h2>
             
-            <p className="text-gray-200 mb-10 max-w-3xl mx-auto leading-relaxed text-lg md:text-xl">
-              {currentSlideData.description}
+            {/* Comprehensive summary text */}
+            <p 
+              className="text-gray-200 mb-12 max-w-4xl mx-auto leading-relaxed text-lg md:text-xl lg:text-2xl px-4 transform hover:scale-105 transition-all duration-500"
+              style={{ 
+                textShadow: '1px 1px 2px rgba(0,0,0,0.8)',
+                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))'
+              }}
+            >
+              Transform your brand into a social media powerhouse with proven strategies that generate 
+              real followers, engagement, and sales. Specializing in Instagram growth, Facebook advertising, 
+              YouTube optimization, and LinkedIn marketing. Join 50+ successful businesses that have achieved 
+              300%+ growth with my strategic approach to social media marketing and creative design solutions.
             </p>
             
-            {/* CTA Button */}
+            {/* Call to Action Button with 3D effects */}
             <div className="mb-16">
               <button
-                onClick={() => scrollToSection(currentSlideData.primaryAction.link)}
-                className="bg-amber-500 hover:bg-amber-600 text-black px-12 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-2xl hover:shadow-amber-500/30 transform hover:-translate-y-1 hover:scale-105 inline-flex items-center"
+                onClick={() => scrollToSection('#about')}
+                className="group relative bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-black px-12 py-6 rounded-full font-bold text-lg md:text-xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-110 inline-flex items-center overflow-hidden"
+                style={{ 
+                  boxShadow: '0 10px 30px rgba(255,193,7,0.4), 0 0 40px rgba(255,193,7,0.2)',
+                  filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.3))'
+                }}
               >
-                {currentSlideData.primaryAction.text}
-                <Play size={20} className="ml-3" />
+                <span className="relative z-10 flex items-center">
+                  Start Growing Today
+                  <Play size={24} className="ml-3 transform group-hover:scale-110 transition-transform duration-300" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-amber-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
               </button>
             </div>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
+        {/* Scroll Indicator with 3D effect */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-40">
           <button
             onClick={() => scrollToSection('#about')}
-            className="text-white hover:text-amber-400 transition-colors duration-300 flex flex-col items-center"
+            className="text-white hover:text-amber-400 transition-all duration-300 flex flex-col items-center group transform hover:scale-110"
+            style={{ 
+              filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.5))',
+              textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
+            }}
           >
-            <span className="text-sm mb-2">Scroll Down</span>
-            <ArrowDown size={24} />
+            <span className="text-sm mb-2 font-medium">Scroll Down</span>
+            <ArrowDown size={24} className="group-hover:translate-y-1 transition-transform duration-300" />
           </button>
-        </div>
-      </div>
-
-      {/* Quick Navigation Section Below Hero */}
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent py-8 z-30">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-            {[
-              { label: 'About Me', section: '#about' },
-              { label: 'Services', section: '#services' },
-              { label: 'Portfolio', section: '#portfolio' },
-              { label: 'Testimonials', section: '#testimonials' },
-              { label: 'Contact', section: '#contact' }
-            ].map((item, index) => (
-              <button
-                key={item.section}
-                onClick={() => scrollToSection(item.section)}
-                className="px-6 py-3 bg-black/30 backdrop-blur-sm rounded-full text-white hover:text-amber-400 hover:bg-amber-500/20 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-white/20 hover:border-amber-400/50 text-sm md:text-base"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
         </div>
       </div>
     </section>

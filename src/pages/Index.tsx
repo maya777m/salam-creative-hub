@@ -43,7 +43,7 @@ const Index: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       <Helmet>
         <title>Abdus Mango - Social Media Marketing & Creative Design Expert</title>
         <meta name="description" content="Professional social media marketing and creative design services by Abdus Mango. Helping businesses grow their online presence and engage with their audience effectively." />
@@ -66,13 +66,19 @@ const Index: React.FC = () => {
         <meta name="twitter:site" content="@abdusmango" />
         <meta name="twitter:creator" content="@abdusmango" />
       </Helmet>
+      
       <Navbar />
-      <Hero />
-      <AboutSnippet />
-      <Services />
-      <Portfolio />
-      <Testimonials />
-      <Contact />
+      
+      {/* Main content with proper spacing for fixed navbar */}
+      <main className="relative">
+        <Hero />
+        <AboutSnippet />
+        <Services />
+        <Portfolio />
+        <Testimonials />
+        <Contact />
+      </main>
+      
       <Footer />
     </div>
   );
