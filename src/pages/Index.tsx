@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Hero from '../components/Hero';
 import AboutSnippet from '../components/AboutSnippet';
 import Services from '../components/Services';
@@ -37,7 +37,7 @@ const Index: React.FC = () => {
           targetElement.scrollIntoView({
             behavior: 'smooth'
           });
-        }, 500); // Delay to ensure page is fully loaded
+        }, 500);
       }
     }
   }, []);
@@ -45,27 +45,26 @@ const Index: React.FC = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Md. Abdus Salam - Digital Marketing & Graphic Design Expert</title>
-        <meta name="description" content="Professional digital marketing and graphic design services by Md. Abdus Salam. Helping businesses grow their online presence and stand out in the digital world." />
-        <meta name="keywords" content="digital marketing, graphic design, SEO, social media marketing, brand identity, UI/UX design, content strategy" />
-        <meta property="og:title" content="Md. Abdus Salam - Digital Marketing & Graphic Design Expert" />
-        <meta property="og:description" content="Professional digital marketing and graphic design services to help your business grow online." />
+        <title>Abdus Mango - Social Media Marketing & Creative Design Expert</title>
+        <meta name="description" content="Professional social media marketing and creative design services by Abdus Mango. Helping businesses grow their online presence and engage with their audience effectively." />
+        <meta name="keywords" content="social media marketing, digital marketing, graphic design, content creation, brand strategy, Instagram marketing, Facebook ads, YouTube marketing" />
+        <meta property="og:title" content="Abdus Mango - Social Media Marketing & Creative Design Expert" />
+        <meta property="og:description" content="Transform your social media presence with expert marketing strategies and creative design solutions." />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Md. Abdus Salam - Digital Marketing & Graphic Design Expert" />
-        <meta name="twitter:description" content="Professional digital marketing and graphic design services to help your business grow online." />
-        <link rel="canonical" href="https://salamcreative.com/" />
+        <meta name="twitter:title" content="Abdus Mango - Social Media Marketing Expert" />
+        <meta name="twitter:description" content="Expert social media marketing and creative design services to boost your online presence." />
+        <link rel="canonical" href="https://abdusmango.com/" />
         
-        {/* Additional SEO meta tags */}
         <meta name="robots" content="index, follow" />
-        <meta name="author" content="Md. Abdus Salam" />
+        <meta name="author" content="Abdus Mango" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#ffc107" />
         <meta name="format-detection" content="telephone=no" />
         <meta property="og:locale" content="en_US" />
-        <meta property="og:site_name" content="Salam Creative" />
-        <meta name="twitter:site" content="@salamcreative" />
-        <meta name="twitter:creator" content="@salamcreative" />
+        <meta property="og:site_name" content="Abdus Mango" />
+        <meta name="twitter:site" content="@abdusmango" />
+        <meta name="twitter:creator" content="@abdusmango" />
       </Helmet>
       <Navbar />
       <Hero />
